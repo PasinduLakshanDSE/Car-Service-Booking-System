@@ -15,6 +15,15 @@ import 'bootstrap/dist/js/bootstrap.bundle.min'; // Ensure Bootstrap JS is loade
 const NavBar = () => {
   // Reference for GSAP animation
   const navbarRef = useRef(null);
+  window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    
+    if (window.scrollY > 50) { // Change 50 to the scroll distance you prefer
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
 
   useEffect(() => {
     // Initialize WOW.js animations
@@ -35,7 +44,7 @@ const NavBar = () => {
   return (
     <div>
       {/* Top Bar Start */}
-      <div className="container-fluid bg-light p-0">
+      <div className="container-fluid bg-light p-0 top-bar">
         <div className="row gx-0 d-none d-lg-flex">
           <div className="col-lg-7 px-5 text-start">
             <div className="h-100 d-inline-flex align-items-center py-3 me-4">
@@ -72,7 +81,7 @@ const NavBar = () => {
       {/* Top Bar End */}
 
       {/* Navbar Start */}
-      <nav ref={navbarRef} className="navbar navbar-expand-lg navbar-light shadow fixed-top  p-0 custom-nav-bg">
+      <nav ref={navbarRef} className="navbar  navbar-expand-lg navbar-light shadow  p-0 custom-nav-bg">
         <Link to="/" className="navbar-brand d-flex align-items-center px-4 px-lg-5">
           <img src="/logo.jpg" alt="CarServ Logo" style={{ width: '70px', marginRight: '30px' }} />
           <h4 className='Name mb-2 mt-3 '>PIONEER AUTO ELECTRICALS</h4>

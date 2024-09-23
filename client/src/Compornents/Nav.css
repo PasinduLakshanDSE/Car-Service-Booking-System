@@ -7,7 +7,45 @@
     --hover-color: #162396;
 }
 
-.fixed-top {
+
+
+  
+/* Default navbar styling */
+.navbar {
+    position: fixed;
+    top: 60;
+    width: 100%;
+    z-index: 999;
+    background-color: white; /* Make sure the background is not transparent */
+   
+  }
+  .navbar.scrolled {
+    top: 0;
+    
+}
+  
+  .main-content {
+    padding-top: 80px; /* Adjust this value according to the navbar's height */
+  }
+  
+  
+  /* Navbar when scrolled */
+  .scrolled {
+    background-color: #ffffff; /* Change to your preferred color */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+  }
+  
+
+
+/*.navbar {
+    position: -webkit-sticky; 
+    position: sticky;
+    top: 0;
+    z-index: 1020; 
+  }*/
+  
+  /*.fixed-top {
     position: fixed;
     top: 0;
     width: 100%;
@@ -17,7 +55,7 @@
   
   .navbar + .content {
     margin-top: 70px; /* Adjust this based on your navbar height */
-  }
+  /*}*/
   
 
 .Name{
