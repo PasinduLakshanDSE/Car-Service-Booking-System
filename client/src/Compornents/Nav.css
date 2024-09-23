@@ -1,0 +1,194 @@
+/********** Template CSS **********/
+:root {
+    --primary: #D81324;
+    --secondary: #0B2154;
+    --light: #F2F2F2;
+    --dark: #111111;
+    --hover-color: #162396;
+}
+
+.fixed-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .navbar + .content {
+    margin-top: 70px; /* Adjust this based on your navbar height */
+  }
+  
+
+.Name{
+    color: #162396;
+    font-family: "Abril Fatface", serif;
+    font-weight: 1000;
+    font-style: normal;
+}
+
+/* General Styles */
+.fw-medium {
+    font-weight: 600 !important;
+}
+
+.back-to-top {
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+}
+
+/*** NavBar ***/
+.custom-nav-bg {
+    background-color: white;
+}
+
+.btn-custom {
+    background-color: #162396; /* Custom background color */
+    color: rgb(243, 240, 76); /* Text color */
+    border-radius: 20px;
+    margin-top: 5px;
+    margin-bottom: 3px;
+}
+
+.custom-color {
+    color: #162396; /* Default color */
+}
+
+.btn-custom:hover {
+    background-color: #0B2154; /* Darker color on hover */
+    color: rgb(243, 240, 76); /* Ensure text color remains readable */
+}
+
+/* Custom hover color */
+
+  
+
+/* NavBar Link Styles */
+.navbar-light .navbar-nav .nav-link {
+    margin-right: 30px;
+    padding: 25px 0;
+    color: #162396; /* Default text color */
+    font-size: 15px;
+    text-transform: uppercase;
+    outline: none;
+    transition: color 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Hover and Active States */
+.navbar-light .navbar-nav .nav-link:hover{
+    color: #162396;
+}
+.navbar-light .navbar-nav .nav-link.active {
+    color: #162396; /* Custom hover color */
+}
+
+@media (max-width: 991.98px) {
+    .navbar-light .navbar-nav .nav-link {
+        margin-right: 0;
+        padding: 10px 0;
+    }
+
+    .navbar-light .navbar-nav {
+        border-top: 1px solid #162396;
+    }
+}
+
+.navbar-light .navbar-brand,
+.navbar-light a.btn {
+    height: 75px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    font-weight: 500;
+}
+
+.navbar-light.sticky-top {
+    top: -100px;
+    transition: .5s;
+}
+
+/*.sticky-top{
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+}*/
+
+@media (min-width: 992px) {
+    .navbar .nav-item .dropdown-menu {
+        display: block;
+        border: none;
+        margin-top: 0;
+        top: 150%;
+        opacity: 0;
+        visibility: hidden;
+        transition: .5s;
+    }
+
+    .navbar .nav-item:hover .dropdown-menu {
+        top: 100%;
+        visibility: visible;
+        transition: .5s;
+        opacity: 1;
+    }
+}
+
+/*** Spinner ***/
+/*
+#spinner {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    z-index: 99999;
+}
+
+#spinner.show {
+    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    visibility: visible;
+    opacity: 1;
+}*/
+
+
+/*** Button ***/
+/*
+.btn {
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: .5s;
+}
+
+.btn.btn-primary,
+.btn.btn-secondary {
+    color: #FFFFFF;
+}
+
+.btn-square {
+    width: 38px;
+    height: 38px;
+}
+
+.btn-sm-square {
+    width: 32px;
+    height: 32px;
+}
+
+.btn-lg-square {
+    width: 48px;
+    height: 48px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: normal;
+    border-radius: 2px;
+}
+    */
+
+
