@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import "./Nav.css"; // Adjust the path based on your project structure
 import WOW from 'wowjs';
 import 'animate.css';
-//import AOS from 'aos';//Best for scroll-triggered animations.
-//import 'aos/dist/aos.css';
-//import { gsap } from 'gsap';//Great for complex, fully customizable JavaScript animations.
+import AOS from 'aos';//Best for scroll-triggered animations.
+import 'aos/dist/aos.css';
+import { gsap } from 'gsap';//Great for complex, fully customizable JavaScript animations.
 import 'bootstrap/dist/css/bootstrap.min.css';  // Ensure Bootstrap CSS is loaded
 import 'bootstrap/dist/js/bootstrap.bundle.min'; // Ensure Bootstrap JS is loaded
 //import "./anime2.css"
@@ -25,21 +25,34 @@ const NavBar = () => {
     }
 });
 
-  useEffect(() => {
-    // Initialize WOW.js animations
-    new WOW.WOW().init();
+useEffect(() => {
+  // Initialize WOW.js animations
+  new WOW.WOW().init();
 
-    /*// Initialize AOS for scroll animations
-    AOS.init({ duration: 1000 });
+  const animateNav = () => {
+    if (window.scrollY > 50) {
+      gsap.to(navbarRef.current, {
+        duration: 1,
+        y: 0, // Moves the navbar to its original position
+        opacity: 1,
+        ease: "power3.out",
+      });
+    } else {
+      gsap.to(navbarRef.current, {
+        duration: 1,
+        y: -100, // Moves the navbar up out of view
+        opacity: 0,
+        ease: "power3.out",
+      });
+    }
+  };
 
-    // GSAP animation for the navbar
-    gsap.from(navbarRef.current, {
-      duration: 1.5,
-      //y: -100,
-      opacity: 100,
-      ease: "power3.out"
-    });*/
-  }, []); // The empty dependency array ensures this only runs once when the component mounts
+  window.addEventListener('scroll', animateNav);
+
+  // Clean up event listener
+  return () => window.removeEventListener('scroll', animateNav);
+}, []);
+ // The empty dependency array ensures this only runs once when the component mounts
 
   return (
     <div>

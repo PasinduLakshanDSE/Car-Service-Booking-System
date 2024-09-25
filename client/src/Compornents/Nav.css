@@ -17,6 +17,7 @@
     width: 100%;
     z-index: 999;
     background-color: white; /* Make sure the background is not transparent */
+    transition: opacity 0.3s ease;
    
   }
   .navbar.scrolled {

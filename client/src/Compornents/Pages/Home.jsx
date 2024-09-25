@@ -467,7 +467,7 @@ const Home = () => {
 <div
   className="container-fluid fact bg-dark my-5 py-5"
   style={{
-    backgroundImage: `url('/ex3.png')`,
+    backgroundImage: `url('/about3.jpg')`,
      
     
     backgroundPosition: 'center center',
@@ -487,21 +487,21 @@ const Home = () => {
       <div className="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
         <i className="fa fa-users-cog fa-2x text-white mb-3"></i>
         <h2 className="text-white mb-2">
-          <CountUp start={0} end={1234} duration={2.5} />
+          <CountUp start={0} end={30} duration={2.5} />
         </h2>
         <p className="text-white mb-0">Expert Technicians</p>
       </div>
       <div className="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
         <i className="fa fa-users fa-2x text-white mb-3"></i>
         <h2 className="text-white mb-2">
-          <CountUp start={0} end={1234} duration={2.5} />
+          <CountUp start={0} end={1000} duration={2.5} />
         </h2>
         <p className="text-white mb-0">Satisfied Clients</p>
       </div>
       <div className="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
         <i className="fa fa-car fa-2x text-white mb-3"></i>
         <h2 className="text-white mb-2">
-          <CountUp start={0} end={1234} duration={2.5} />
+          <CountUp start={0} end={1000} duration={2.5} />
         </h2>
         <p className="text-white mb-0">Complete Projects</p>
       </div>

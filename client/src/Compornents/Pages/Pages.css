@@ -111,7 +111,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Adjust the alpha value for transparency */
+    background-color: rgba(0, 0, 0, 0.842); /* Adjust the alpha value for transparency */
     z-index: 1; /* Position it behind the content */
 }
 
