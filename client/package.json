@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^13.5.0",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
+    "axios": "^1.7.7",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "gsap": "^3.12.5",
@@ -17,7 +18,7 @@
     "react": "^18.3.1",
     "react-countup": "^6.5.3",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.1",
+    "react-router-dom": "^6.26.2",
     "react-scripts": "5.0.1",
     "stickyfilljs": "^2.1.0",
     "web-vitals": "^2.1.4",
@@ -49,5 +50,6 @@
   },
   "devDependencies": {
     "@types/bootstrap": "^5.2.10"
-  }
+  },
+  "proxy": "http://localhost:5000/"
 }
