@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect  } from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+
 import axios from "axios";
 import "./Pages.css";
 import "./anime.css";
@@ -8,11 +10,34 @@ import CountUp from 'react-countup';
 import WOW from 'wowjs';
 import 'animate.css'; // Ideal for simple CSS animations
 import Technicians from '../Technician'; // Ensure the correct import path
+import 'owl.carousel/dist/assets/owl.carousel.css'; // Import the required CSS for Owl Carousel
+import 'owl.carousel/dist/assets/owl.theme.default.css';
+import OwlCarousel from 'react-owl-carousel'; // Import OwlCarousel component
+
+
 
 const Home = () => {
   const [technicians, setTechnicians] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+
+  const row1 = [
+    "./about1.jpg",
+    "./about2.jpg",
+    "./about1.jpg",
+    "./about2.jpg",
+    "./about1.jpg",
+    "./about2.jpg",
+  ];
+
+  const row2 = [
+    "./about1.jpg",
+    "./about2.jpg",
+    "./about1.jpg",
+    "./about2.jpg",
+    "./about1.jpg",
+    "./about2.jpg",
+  ];
 
   const chunkArray = (array, chunkSize) => {
     const results = [];
@@ -46,7 +71,7 @@ const Home = () => {
     };
   }, []);
 
-  const technicianRows = chunkArray(technicians, 4);
+  const technicianRows = chunkArray(technicians, 6);
 
   return (
     <div>
@@ -533,11 +558,14 @@ const Home = () => {
         </div>
       </div>
 
+{/* Explain  End*/}
 
+
+{/* Technician  Start*/}
       <div className="container-xxl py-5">
         <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
-          <h6 className="text-primary text-uppercase">// Our Technicians //</h6>
-          <h1 className="mb-5">Our Expert Technicians</h1>
+          <h6 className="text-color text-uppercase normal-style">** Our Technicians **</h6>
+          <h1 className="mb-5 head-style">Our Expert Technicians</h1>
         </div>
 
         {loading ? (
@@ -554,8 +582,97 @@ const Home = () => {
           ))
         )}
       </div>
+
+      {/* Technician End*/}
+
+
+
+      {/*car type*/}
+
+      <div className="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+      <div className="container">
+        <div className="text-center">
+          <h6 className="text-primary text-uppercase">// Testimonial //</h6>
+          <h1 className="mb-5">Our Clients Say!</h1>
+        </div>
+        <OwlCarousel
+          className="testimonial-carousel position-relative"
+          loop
+          margin={30}
+          nav
+          dots={false}
+          autoplay={true}
+          autoplayTimeout={3000}
+          items={1} // Number of items to display
+        >
+          <div>
+          <div className="testimonial-item text-center">
+            <img
+              className="bg-light rounded-circle p-2 mx-auto mb-3"
+              src="/testimonial-1.jpg"
+              style={{ width: '80px', height: '80px' }}
+              alt="Client"
+            />
+           
+            
+          </div>
+
+          <div className="testimonial-item text-center">
+            <img
+              className="bg-light rounded-circle p-2 mx-auto mb-3"
+              src="/testimonial-2.jpg"
+              style={{ width: '80px', height: '80px' }}
+              alt="Client"
+            />
+            </div>
+          </div>
+          {/* Add more testimonial items as needed */}
+        </OwlCarousel>
+      </div>
     </div>
+
+      
+    
+
+    {/* Marquee Section */}
+        <div className="app-container d-flex align-items-center justify-content-center">
+          <Container className="text-center">
+            <h1 className="main-title">Hello</h1>
+            {/* Marquee Container 1 */}
+            <div className="marquee-container mb-4">
+              <Row className="marquee-row">
+                {row1.map((src, index) => (
+                  <Col key={index} className="marquee-col">
+                    <img src={src} className="marquee-image" alt={`Row 1 Image ${index}`} />
+                  </Col>
+                ))}
+              </Row>
+            </div>
+
+            {/* Marquee Container 2 */}
+            <div className="marquee-container mb-4">
+              <Row className="marquee-row">
+                {row2.map((src, index) => (
+                  <Col key={index} className="marquee-col">
+                    <img src={src} className="marquee-image" alt={`Row 2 Image ${index}`} />
+                  </Col>
+                ))}
+              </Row>
+            </div>
+          </Container>
+        </div>
+      
+    </div>
+
+      
+
+
+    
   );
+  
 };
+
+
+
 
 export default Home;
