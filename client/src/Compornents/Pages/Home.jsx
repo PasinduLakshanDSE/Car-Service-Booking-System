@@ -1,9 +1,9 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import axios from "axios";
-import "./Pages.css";
-import "./anime.css";
+import "../Pages/css/Home.css";
+import "../Pages/css/anime.css";
 import 'bootstrap/dist/css/bootstrap.min.css';  // Ensure Bootstrap CSS is loaded
 import 'bootstrap/dist/js/bootstrap.bundle.min'; // Ensure Bootstrap JS is loaded
 import CountUp from 'react-countup';
@@ -558,10 +558,10 @@ const Home = () => {
         </div>
       </div>
 
-{/* Explain  End*/}
+      {/* Explain  End*/}
 
 
-{/* Technician  Start*/}
+      {/* Technician  Start*/}
       <div className="container-xxl py-5">
         <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
           <h6 className="text-color text-uppercase normal-style">** Our Technicians **</h6>
@@ -588,7 +588,7 @@ const Home = () => {
 
 
       {/*car type*/}
-
+      {/*
       <div className="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
       <div className="container">
         <div className="text-center">
@@ -626,19 +626,19 @@ const Home = () => {
             />
             </div>
           </div>
-          {/* Add more testimonial items as needed */}
+          
         </OwlCarousel>
       </div>
     </div>
 
-      
-    
+     */}
 
-    {/* Marquee Section */}
-        <div className="app-container d-flex align-items-center justify-content-center">
+
+      {/* Marquee Section */}
+      {/* <div className="app-container d-flex align-items-center justify-content-center" style={{backgroundcolor:'red'}}>
           <Container className="text-center">
             <h1 className="main-title">Hello</h1>
-            {/* Marquee Container 1 */}
+            
             <div className="marquee-container mb-4">
               <Row className="marquee-row">
                 {row1.map((src, index) => (
@@ -650,7 +650,7 @@ const Home = () => {
             </div>
 
             {/* Marquee Container 2 */}
-            <div className="marquee-container mb-4">
+      {/* <div className="marquee-container mb-4">
               <Row className="marquee-row">
                 {row2.map((src, index) => (
                   <Col key={index} className="marquee-col">
@@ -660,16 +660,232 @@ const Home = () => {
               </Row>
             </div>
           </Container>
+        </div>*/}
+
+      <div class="wrapper">
+        <div className="itemLeft item1" >
+
+          <img className="fit-image"
+
+            src="/Clogo2.jpg"
+
+            alt="Client"
+          />
         </div>
-      
+        <div class="itemLeft item2"> <img className="fit-image"
+
+          src="/Clogo3.jpg"
+
+          alt="Client"
+        /></div>
+        <div class="itemLeft item3"> <img className="fit-image"
+
+          src="/Clogo4.jpg"
+
+          alt="Client"
+        /></div>
+        <div class="itemLeft item4"> <img className="fit-image"
+
+          src="/Clogo5.jpg"
+
+          alt="Client"
+        /></div>
+        <div class="itemLeft item5"> <img className="fit-image"
+
+          src="/Clogo6.jpg"
+
+          alt="Client"
+        /></div>
+        <div class="itemLeft item6"> <img className="fit-image"
+
+          src="/Clogo7.jpg"
+
+          alt="Client"
+        /></div>
+        <div class="itemLeft item7"> <img className="fit-image"
+
+          src="/Clogo8.jpg"
+
+          alt="Client"
+        /></div>
+        <div class="itemLeft item8"> <img className="fit-image"
+
+          src="/Clogo9.jpg"
+
+          alt="Client"
+        /></div>
+
+
+
+      </div>
+
+      <div class="wrapper">
+        <div class="itemRight item1"> <img className="fit-image"
+
+          src="/Clogo10.jpg"
+
+          alt="Client"
+        /></div>
+        <div class="itemRight item2"> <img className="fit-image"
+
+          src="/Clogo11.jpg"
+
+          alt="Client"
+        /></div>
+        <div class="itemRight item3"> <img className="fit-image"
+
+          src="/Clogo17.jpg"
+
+          alt="Client"
+        /></div>
+        <div class="itemRight item4"> <img className="fit-image"
+
+          src="/Clogo1.jpg"
+
+          alt="Client"
+        /></div>
+        <div class="itemRight item5"> <img className="fit-image"
+
+          src="/Clogo13.jpg"
+
+          alt="Client"
+        /></div>
+        <div class="itemRight item6"> <img className="fit-image"
+
+          src="/Clogo14.jpg"
+
+          alt="Client"
+        /></div>
+        <div class="itemRight item7"> <img className="fit-image"
+
+          src="/Clogo15.jpg"
+
+          alt="Client"
+        /></div>
+        <div class="itemRight item8"> <img className="fit-image"
+
+          src="/Clogo16.jpg"
+
+          alt="Client"
+        /></div>
+
+      </div>
+
+
+      {/*Footer Start*/}
+      {/*<div className="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s"
+       style={{
+        background: `linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('/carousel-bg-1.jpg') center center no-repeat`,
+        backgroundSize: 'cover',
+      }}
+      >
+        <div className="container py-5">
+          <div className="row g-5">
+            {/* Address Section */}
+            {/*<div className="col-lg-3 col-md-6">
+              <h4 className="text-light mb-4">Address</h4>
+              <p className="mb-2">
+                <i className="fa fa-map-marker-alt me-3"></i>Location, City, Country
+              </p>
+              <p className="mb-2">
+                <i className="fa fa-phone-alt me-3"></i>+012 345 67890
+              </p>
+              <p className="mb-2">
+                <i className="fa fa-envelope me-3"></i>info@example.com
+              </p>
+              <div className="d-flex pt-2">
+                <a className="btn btn-outline-light btn-social" href="#">
+                  <i className="fab fa-twitter"></i>
+                </a>
+                <a className="btn btn-outline-light btn-social" href="#">
+                  <i className="fab fa-facebook-f"></i>
+                </a>
+                <a className="btn btn-outline-light btn-social" href="#">
+                  <i className="fab fa-youtube"></i>
+                </a>
+                <a className="btn btn-outline-light btn-social" href="#">
+                  <i className="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </div>
+
+            {/* Opening Hours Section */}
+            {/*<div className="col-lg-3 col-md-6">
+              <h4 className="text-light mb-4">Opening Hours</h4>
+              <h6 className="text-light">Monday - Friday:</h6>
+              <p className="mb-4">09.00 AM - 09.00 PM</p>
+              <h6 className="text-light">Saturday - Sunday:</h6>
+              <p className="mb-0">09.00 AM - 12.00 PM</p>
+            </div>
+
+            {/* Services Section */}
+            {/*<div className="col-lg-3 col-md-6">
+              <h4 className="text-light mb-4">Services</h4>
+              <a className="btn btn-link" href="#">
+                Diagnostic Test
+              </a>
+              <a className="btn btn-link" href="#">
+                Engine Servicing
+              </a>
+              <a className="btn btn-link" href="#">
+                Tires Replacement
+              </a>
+              <a className="btn btn-link" href="#">
+                Oil Changing
+              </a>
+              <a className="btn btn-link" href="#">
+                Vacuum Cleaning
+              </a>
+            </div>
+
+            {/* Newsletter Section */}
+           {/*} <div className="col-lg-3 col-md-6">
+              <h4 className="text-light mb-4">Newsletter</h4>
+              <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+              <div className="position-relative mx-auto" style={{ maxWidth: '400px' }}>
+                <input
+                  className="form-control border-0 w-100 py-3 ps-4 pe-5"
+                  type="text"
+                  placeholder="Your email"
+                />
+                <button type="button" className="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">
+                  SignUp
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* Footer Bottom Section */}
+       {/*} <div className="container">
+          <div className="copyright">
+            <div className="row">
+              <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                &copy; <a className="border-bottom" href="https://freewebsitecode.com">Your Site Name</a>, All Right Reserved.
+                <br />
+                Designed By <a className="border-bottom" href="https://freewebsitecode.com">Free Website Code</a>
+              </div>
+              <div className="col-md-6 text-center text-md-end">
+                <div className="footer-menu">
+                  <a href="#">Home</a>
+                  <a href="#">Cookies</a>
+                  <a href="#">Help</a>
+                  <a href="#">FAQs</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/*Footer End*/}
+
     </div>
 
-      
 
 
-    
+
+
   );
-  
+
 };
 
 

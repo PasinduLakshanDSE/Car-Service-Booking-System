@@ -1,0 +1,556 @@
+/* src/components/Home.css */
+/*.container {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .main-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #02203c;
+    margin-bottom: 30px;
+  }
+  
+  .marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .marquee-row {
+    animation: scroll-left 10s linear infinite;
+    display: flex;
+  }
+  
+  .marquee-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+  }
+  
+  .marquee-image {
+    object-fit: contain;
+    width: 100%;
+    height: 100px;
+    border-radius: 0.5rem;
+    padding: 5px 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .marquee-image:hover {
+    transform: scale(1.05);
+  }
+  
+  
+  @keyframes scroll-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+*/
+
+
+/********** Template CSS **********/
+/* font color design */
+.text-color {
+  color: #162396;
+}
+
+
+/* font style design */
+.normal-style {
+  font-family: 'Archivo Black';
+}
+
+.fw-medium {
+  font-weight: 600 !important;
+}
+
+.head-style {
+  font-family: 'Barlow';
+  font-weight: 700;
+}
+
+
+
+.back-to-top {
+  position: fixed;
+  display: none;
+  right: 45px;
+  bottom: 45px;
+  z-index: 99;
+}
+
+/* button design */
+.btn-custom {
+  background-color: #162396;
+  /* Custom background color */
+  color: rgb(243, 240, 76);
+  /* Text color */
+  border-radius: 20px;
+}
+
+
+
+
+/*Service Start*/
+.custom-text {
+  color: #fafafa;
+  
+}
+
+.custom-icon-color {
+  color: #162396;
+ 
+}
+
+/*Service End*/
+
+/*About Start*/
+.custom-name {
+  color: white;
+}
+
+.font-size {
+  font-size: 40px;
+}
+
+/*About End*/
+
+
+/* Service Type Start*/
+.custom-button {
+  background-color: #162396;
+  /* Custom background */
+  color: #162396;
+  /* Custom text color */
+}
+
+.custom-button i {
+  color: #162396;
+  /* Custom icon color */
+}
+
+.custom-button:active {
+  background-color: #162396;
+  /* Color when button is clicked */
+  color: #ffffff;
+}
+
+.custom-button:focus {
+  outline: none;
+  /* Remove the default focus outline */
+  background-color: #162396;
+  /* Background color when the button is focused */
+}
+
+.custom-button:hover {
+  background-color: #162396;
+  /* Background color on hover */
+}
+
+
+.service .nav .nav-link {
+  background: var(--light);
+  transition: .5s;
+}
+
+.service .nav .nav-link.active {
+  background-color: #162396;
+}
+
+.service .nav .nav-link.active h4 {
+  color: rgb(243, 240, 76) !important;
+}
+
+.service .nav .nav-link.active i {
+  color: rgb(243, 240, 76) !important;
+}
+
+
+/* Service Type End*/
+
+
+/* Explain  Start*/
+.fact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.842);
+  /* Adjust the alpha value for transparency */
+  z-index: 1;
+  /* Position it behind the content */
+}
+
+.fact>* {
+  position: relative;
+  /* Ensure the content is above the overlay */
+  z-index: 2;
+  /* Position content above the overlay */
+}
+
+/* Explain  End*/
+
+
+
+
+
+/*car Type Start*/
+.wrapper {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 1536px;
+  margin-inline: auto;
+  height: 100px;
+  position: relative;
+  overflow: hidden;
+
+  mask-image: linear-gradient(to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1) 10%,
+      rgba(0, 0, 0, 1) 90%,
+      rgba(0, 0, 0, 0));
+}
+
+@keyframes scrollLeft {
+  to {
+    left: -200px;
+  }
+}
+
+@keyframes scrollRight {
+  to {
+    right: -200px;
+  }
+}
+
+.itemLeft,
+.itemRight {
+  width: 180px;
+  height: 80px;
+  background-color: rgb(243, 240, 240);
+  border-radius: 6px;
+  position: absolute;
+  animation-timing-function: linear;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+
+}
+
+.fit-image {
+  width: 100%;
+  /* Make the image width fill the container */
+  height: 100%;
+  /* Make the image height fill the container */
+  object-fit: cover;
+  /* Scale the image to cover the entire div */
+  object-position: center;
+  /* Center the image within the container */
+}
+
+.itemLeft {
+  left: max(calc(200px * 8), 100%);
+  animation-name: scrollLeft;
+}
+
+.itemRight {
+  right: max(calc(200px * 8), calc(100% + 200px));
+  animation-name: scrollRight;
+}
+
+.item1 {
+  animation-delay: calc(30s / 8 * (8 - 1) * -1);
+}
+
+.item2 {
+  animation-delay: calc(30s / 8 * (8 - 2) * -1);
+}
+
+.item3 {
+  animation-delay: calc(30s / 8 * (8 - 3) * -1);
+}
+
+.item4 {
+  animation-delay: calc(30s / 8 * (8 - 4) * -1);
+}
+
+.item5 {
+  animation-delay: calc(30s / 8 * (8 - 5) * -1);
+}
+
+.item6 {
+  animation-delay: calc(30s / 8 * (8 - 6) * -1);
+}
+
+.item7 {
+  animation-delay: calc(30s / 8 * (8 - 7) * -1);
+}
+
+.item8 {
+  animation-delay: calc(30s / 8 * (8 - 8) * -1);
+}
+
+/*Car Type End*/
+
+/*** Spinner ***/
+#spinner {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s ease-out, visibility 0s linear .5s;
+  z-index: 99999;
+}
+
+#spinner.show {
+  transition: opacity .5s ease-out, visibility 0s linear 0s;
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/*** Button ***/
+.btn {
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: .5s;
+}
+
+
+
+.btn-square {
+  width: 38px;
+  height: 38px;
+}
+
+.btn-sm-square {
+  width: 32px;
+  height: 32px;
+}
+
+.btn-lg-square {
+  width: 48px;
+  height: 48px;
+}
+
+.btn-square,
+.btn-sm-square,
+.btn-lg-square {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: normal;
+  border-radius: 2px;
+}
+
+.fact {
+  position: relative;
+  /* Make this the positioning context for the overlay */
+}
+
+
+
+
+/*** Header ***/
+.carousel-caption {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .7);
+  z-index: 1;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 10%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 3rem;
+  height: 3rem;
+}
+
+@media (max-width: 768px) {
+  #header-carousel .carousel-item {
+    position: relative;
+    min-height: 450px;
+  }
+
+  #header-carousel .carousel-item img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.page-header {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.page-header-inner {
+  background: rgba(0, 0, 0, .7);
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+  color: var(--light);
+}
+
+
+
+
+/*** Facts ***/
+fact {
+  background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7));
+
+}
+
+
+
+
+/*** Booking ***/
+/*.booking {
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(../img/carousel-bg-2.jpg) center center no-repeat;
+    background-size: cover;
+}*/
+
+.bootstrap-datetimepicker-widget.bottom {
+  top: auto !important;
+}
+
+.bootstrap-datetimepicker-widget .table * {
+  border-bottom-width: 0px;
+}
+
+.bootstrap-datetimepicker-widget .table th {
+  font-weight: 500;
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu {
+  padding: 10px;
+  border-radius: 2px;
+}
+
+.bootstrap-datetimepicker-widget table td.active,
+.bootstrap-datetimepicker-widget table td.active:hover {
+  background: var(--primary);
+}
+
+.bootstrap-datetimepicker-widget table td.today::before {
+  border-bottom-color: var(--primary);
+}
+
+
+
+
+/* Technician  Start*/
+.team-overlay .btn-square:hover {
+  background-color: #0e2e50;
+  /* Change this to your desired hover color */
+  border-color: #e0d20b;
+  /* Optional: Change border color */
+  color: #e0d20b;
+  /* Optional: Change icon color */
+}
+
+
+
+.btn-custom2 {
+  background-color: white;
+  /* Custom background color */
+  color: #0e2e50;
+  /* Text color */
+
+}
+
+.team-item:hover .team-overlay {
+  background: #0e2e50;
+  /* Replace with a different hover color */
+
+}
+
+
+.team-item .team-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  transform: scale(0);
+  transition: .5s;
+}
+
+.team-item:hover .team-overlay {
+  transform: scale(1);
+}
+
+/*.team-item .team-overlay .btn {
+    color: var(--primary);
+    background: #2c13bb;
+}
+
+.team-item .team-overlay .btn:hover {
+    color: #5b1ac5;
+    background: var(--secondary)
+}*/
+/*Technician End*/
+
+/*** Testimonial ***/
+/*
+.testimonial-carousel .owl-item .testimonial-text,
+.testimonial-carousel .owl-item.center .testimonial-text * {
+    transition: .5s;
+}
+
+.testimonial-carousel .owl-item.center .testimonial-text {
+    background: var(--primary) !important;
+}
+
+.testimonial-carousel .owl-item.center .testimonial-text * {
+    color: #FFFFFF !important;
+}
+
+.testimonial-carousel .owl-dots {
+    margin-top: 24px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.testimonial-carousel .owl-dot {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #CCCCCC;
+    transition: .5s;
+}
+
+.testimonial-carousel .owl-dot.active {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+*/
+
+/*** Footer ***/
+/*.footer {
+    background: linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)),  url('/carousel-bg-1.jpg') center center no-repeat;
+    background-size: cover;
+}*/
+

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';  // Import useRef for GSAP
 import { Link } from "react-router-dom";
-import "./Nav.css"; // Adjust the path based on your project structure
+import "./css/Nav.css"; // Adjust the path based on your project structure
 import WOW from 'wowjs';
 import 'animate.css';
 import AOS from 'aos';//Best for scroll-triggered animations.
@@ -15,44 +15,44 @@ import 'bootstrap/dist/js/bootstrap.bundle.min'; // Ensure Bootstrap JS is loade
 const NavBar = () => {
   // Reference for GSAP animation
   const navbarRef = useRef(null);
-  window.addEventListener('scroll', function() {
+  window.addEventListener('scroll', function () {
     const navbar = document.querySelector('.navbar');
-    
+
     if (window.scrollY > 50) { // Change 50 to the scroll distance you prefer
-        navbar.classList.add('scrolled');
+      navbar.classList.add('scrolled');
     } else {
-        navbar.classList.remove('scrolled');
+      navbar.classList.remove('scrolled');
     }
-});
+  });
 
-useEffect(() => {
-  // Initialize WOW.js animations
-  new WOW.WOW().init();
+  useEffect(() => {
+    // Initialize WOW.js animations
+    new WOW.WOW().init();
 
-  const animateNav = () => {
-    if (window.scrollY > 50) {
-      gsap.to(navbarRef.current, {
-        duration: 1,
-        y: 0, // Moves the navbar to its original position
-        opacity: 1,
-        ease: "power3.out",
-      });
-    } else {
-      gsap.to(navbarRef.current, {
-        duration: 1,
-        y: -100, // Moves the navbar up out of view
-        opacity: 0,
-        ease: "power3.out",
-      });
-    }
-  };
+    const animateNav = () => {
+      if (window.scrollY > 50) {
+        gsap.to(navbarRef.current, {
+          duration: 1,
+          y: 0, // Moves the navbar to its original position
+          opacity: 1,
+          ease: "power3.out",
+        });
+      } else {
+        gsap.to(navbarRef.current, {
+          duration: 1,
+          y: -100, // Moves the navbar up out of view
+          opacity: 0,
+          ease: "power3.out",
+        });
+      }
+    };
 
-  window.addEventListener('scroll', animateNav);
+    window.addEventListener('scroll', animateNav);
 
-  // Clean up event listener
-  return () => window.removeEventListener('scroll', animateNav);
-}, []);
- // The empty dependency array ensures this only runs once when the component mounts
+    // Clean up event listener
+    return () => window.removeEventListener('scroll', animateNav);
+  }, []);
+  // The empty dependency array ensures this only runs once when the component mounts
 
   return (
     <div>

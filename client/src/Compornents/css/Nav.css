@@ -1,42 +1,40 @@
 /********** Template CSS **********/
-:root {
-    --primary: #D81324;
-    --secondary: #0B2154;
-    --light: #F2F2F2;
-    --dark: #111111;
-    --hover-color: #162396;
-}
 
 
 
-  
+
+
 /* Default navbar styling */
 .navbar {
     position: fixed;
     top: 60;
     width: 100%;
     z-index: 999;
-    background-color: white; /* Make sure the background is not transparent */
+    background-color: white;
+    /* Make sure the background is not transparent */
     transition: opacity 0.3s ease;
-   
-  }
-  .navbar.scrolled {
-    top: 0;
-    
+
 }
-  
-  .main-content {
-    padding-top: 80px; /* Adjust this value according to the navbar's height */
-  }
-  
-  
-  /* Navbar when scrolled */
-  .scrolled {
-    background-color: #ffffff; /* Change to your preferred color */
+
+.navbar.scrolled {
+    top: 0;
+
+}
+
+.main-content {
+    padding-top: 80px;
+    /* Adjust this value according to the navbar's height */
+}
+
+
+/* Navbar when scrolled */
+.scrolled {
+    background-color: #ffffff;
+    /* Change to your preferred color */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    
-  }
-  
+
+}
+
 
 
 /*.navbar {
@@ -45,8 +43,8 @@
     top: 0;
     z-index: 1020; 
   }*/
-  
-  /*.fixed-top {
+
+/*.fixed-top {
     position: fixed;
     top: 0;
     width: 100%;
@@ -56,10 +54,10 @@
   
   .navbar + .content {
     margin-top: 70px; /* Adjust this based on your navbar height */
-  /*}*/
-  
+/*}*/
 
-.Name{
+
+.Name {
     color: #162396;
     font-family: "Abril Fatface", serif;
     font-weight: 1000;
@@ -85,43 +83,52 @@
 }
 
 .btn-custom {
-    background-color: #162396; /* Custom background color */
-    color: rgb(243, 240, 76); /* Text color */
+    background-color: #162396;
+    /* Custom background color */
+    color: rgb(243, 240, 76);
+    /* Text color */
     border-radius: 20px;
     margin-top: 5px;
     margin-bottom: 3px;
 }
 
 .custom-color {
-    color: #162396; /* Default color */
+    color: #162396;
+    /* Default color */
 }
 
 .btn-custom:hover {
-    background-color: #0B2154; /* Darker color on hover */
-    color: rgb(243, 240, 76); /* Ensure text color remains readable */
+    background-color: #0B2154;
+    /* Darker color on hover */
+    color: rgb(243, 240, 76);
+    /* Ensure text color remains readable */
 }
 
 /* Custom hover color */
 
-  
+
 
 /* NavBar Link Styles */
 .navbar-light .navbar-nav .nav-link {
     margin-right: 30px;
     padding: 25px 0;
-    color: #162396; /* Default text color */
+    color: #162396;
+    /* Default text color */
     font-size: 15px;
     text-transform: uppercase;
     outline: none;
-    transition: color 0.3s ease-in-out; /* Smooth transition */
+    transition: color 0.3s ease-in-out;
+    /* Smooth transition */
 }
 
 /* Hover and Active States */
-.navbar-light .navbar-nav .nav-link:hover{
+.navbar-light .navbar-nav .nav-link:hover {
     color: #162396;
 }
+
 .navbar-light .navbar-nav .nav-link.active {
-    color: #162396; /* Custom hover color */
+    color: #162396;
+    /* Custom hover color */
 }
 
 @media (max-width: 991.98px) {
@@ -229,5 +236,3 @@
     border-radius: 2px;
 }
     */
-
-

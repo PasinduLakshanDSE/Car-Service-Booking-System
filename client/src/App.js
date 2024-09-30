@@ -19,6 +19,7 @@ import WOW from 'wowjs';
 import 'animate.css';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import Footer from './Compornents/Footer';
 
 
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/services" element={<Services />} />
         </Routes>
+        <Footer/>
     </div>
   );
 }
