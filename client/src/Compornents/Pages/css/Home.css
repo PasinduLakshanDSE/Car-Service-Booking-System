@@ -1,65 +1,3 @@
-/* src/components/Home.css */
-/*.container {
-    width: 100%;
-    padding: 20px;
-  }
-  
-  .main-title {
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: #02203c;
-    margin-bottom: 30px;
-  }
-  
-  .marquee-container {
-    overflow: hidden;
-    white-space: nowrap;
-    position: relative;
-    width: 100%;
-    height: 200px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .marquee-row {
-    animation: scroll-left 10s linear infinite;
-    display: flex;
-  }
-  
-  .marquee-col {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-  }
-  
-  .marquee-image {
-    object-fit: contain;
-    width: 100%;
-    height: 100px;
-    border-radius: 0.5rem;
-    padding: 5px 10px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .marquee-image:hover {
-    transform: scale(1.05);
-  }
-  
-  
-  @keyframes scroll-left {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-100%);
-    }
-  }
-  
-*/
-
-
 /********** Template CSS **********/
 /* font color design */
 .text-color {
@@ -106,12 +44,12 @@
 /*Service Start*/
 .custom-text {
   color: #fafafa;
-  
+
 }
 
 .custom-icon-color {
   color: #162396;
- 
+
 }
 
 /*Service End*/
@@ -498,59 +436,3 @@ fact {
 .team-item:hover .team-overlay {
   transform: scale(1);
 }
-
-/*.team-item .team-overlay .btn {
-    color: var(--primary);
-    background: #2c13bb;
-}
-
-.team-item .team-overlay .btn:hover {
-    color: #5b1ac5;
-    background: var(--secondary)
-}*/
-/*Technician End*/
-
-/*** Testimonial ***/
-/*
-.testimonial-carousel .owl-item .testimonial-text,
-.testimonial-carousel .owl-item.center .testimonial-text * {
-    transition: .5s;
-}
-
-.testimonial-carousel .owl-item.center .testimonial-text {
-    background: var(--primary) !important;
-}
-
-.testimonial-carousel .owl-item.center .testimonial-text * {
-    color: #FFFFFF !important;
-}
-
-.testimonial-carousel .owl-dots {
-    margin-top: 24px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
-
-.testimonial-carousel .owl-dot {
-    position: relative;
-    display: inline-block;
-    margin: 0 5px;
-    width: 15px;
-    height: 15px;
-    border: 1px solid #CCCCCC;
-    transition: .5s;
-}
-
-.testimonial-carousel .owl-dot.active {
-    background: var(--primary);
-    border-color: var(--primary);
-}
-*/
-
-/*** Footer ***/
-/*.footer {
-    background: linear-gradient(rgba(0, 0, 0, .9), rgba(0, 0, 0, .9)),  url('/carousel-bg-1.jpg') center center no-repeat;
-    background-size: cover;
-}*/
-

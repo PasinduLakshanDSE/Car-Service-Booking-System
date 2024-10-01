@@ -61,3 +61,16 @@
     padding-right: 0;
     border-right: none;
   }
+  .service{
+    padding-left: 100px;
+  }
+
+  .hours{
+    padding-left: 100px;
+  }
+
+  .normal-style {
+    font-family: 'Archivo Black';
+  }
+
+  

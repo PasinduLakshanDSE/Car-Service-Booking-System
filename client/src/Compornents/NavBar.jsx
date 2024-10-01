@@ -104,21 +104,21 @@ const NavBar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <div className="navbar-nav ms-auto p-4 p-lg-0">
-            <Link to="/" className="nav-item nav-link">Home</Link>
-            <Link to="/about" className="nav-item nav-link">About</Link>
-            <Link to="/services" className="nav-item nav-link">Services</Link>
+            <Link to="/" className="nav-item nav-link normal-style">Home</Link>
+            <Link to="/about" className="nav-item nav-link normal-style">About</Link>
+            <Link to="/services" className="nav-item nav-link normal-style">Services</Link>
             <div className="nav-item dropdown">
-              <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+              <a href="#" className="nav-link dropdown-toggle normal-style" data-bs-toggle="dropdown">Pages</a>
               <div className="dropdown-menu fade-up m-0">
-                <Link to="/booking" className="dropdown-item">Booking</Link>
-                <Link to="/team" className="dropdown-item">Technicians</Link>
-                <Link to="/testimonial" className="dropdown-item">Testimonial</Link>
-                <Link to="/404" className="dropdown-item">404 Page</Link>
+                <Link to="/booking" className="dropdown-item normal-style">Booking</Link>
+                <Link to="/team" className="dropdown-item normal-style">Technicians</Link>
+                <Link to="/testimonial" className="dropdown-item normal-style">Testimonial</Link>
+                <Link to="/404" className="dropdown-item normal-style">404 Page</Link>
               </div>
             </div>
-            <Link to="/contact" className="nav-item nav-link">Contact</Link>
+            <Link to="/contact" className="nav-item nav-link normal-style">Contact</Link>
           </div>
-          <a href="#" className="btn btn-custom py-4 px-lg-5 d-none d-lg-block">Book<i className="fa fa-arrow-right ms-3"></i></a>
+          <a href="#" className="btn btn-custom py-4 px-lg-5 d-none d-lg-block normal-style">Book<i className="fa fa-arrow-right ms-3"></i></a>
         </div>
       </nav>
       {/* Navbar End */}
