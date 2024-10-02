@@ -336,15 +336,7 @@
   }
 }
 
-.page-header {
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
-.page-header-inner {
-  background: rgba(0, 0, 0, .7);
-}
 
 .breadcrumb-item+.breadcrumb-item::before {
   color: var(--light);
