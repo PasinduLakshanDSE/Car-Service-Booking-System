@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';  // Import useRef for GSAP
+import React, { useEffect, useRef,useState } from 'react';  // Import useRef for GSAP
 import { Link } from "react-router-dom";
 import "./css/Nav.css"; // Adjust the path based on your project structure
 import WOW from 'wowjs';
@@ -13,6 +13,12 @@ import 'bootstrap/dist/js/bootstrap.bundle.min'; // Ensure Bootstrap JS is loade
 
 
 const NavBar = () => {
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!dropdownOpen);
+  };
   // Reference for GSAP animation
   const navbarRef = useRef(null);
   window.addEventListener('scroll', function () {
@@ -106,16 +112,19 @@ const NavBar = () => {
           <div className="navbar-nav ms-auto p-4 p-lg-0">
             <Link to="/" className="nav-item nav-link normal-style">Home</Link>
             <Link to="/about" className="nav-item nav-link normal-style">About</Link>
-            <Link to="/services" className="nav-item nav-link normal-style">Services</Link>
-            <div className="nav-item dropdown">
-              <a href="#" className="nav-link dropdown-toggle normal-style" data-bs-toggle="dropdown">Pages</a>
-              <div className="dropdown-menu fade-up m-0">
-                <Link to="/booking" className="dropdown-item normal-style">Booking</Link>
-                <Link to="/team" className="dropdown-item normal-style">Technicians</Link>
-                <Link to="/testimonial" className="dropdown-item normal-style">Testimonial</Link>
-                <Link to="/404" className="dropdown-item normal-style">404 Page</Link>
-              </div>
-            </div>
+            
+            <div className="nav-item dropdown" onClick={toggleDropdown}>
+      <span className="nav-link dropdown-toggle normal-style" role="button">Services</span>
+      <div className={`dropdown-menu fade-up m-0 ${dropdownOpen ? 'show' : ''}`}>
+        <Link to="/Full" className="dropdown-item normal-style hover">Full Wiring Service</Link>
+        <Link to="/Scanning Service" className="dropdown-item normal-style hover">Scanning Service</Link>
+        <Link to="/Altenator Service" className="dropdown-item normal-style hover">Altenator Service</Link>
+        <Link to="/Staring Motor Service" className="dropdown-item normal-style hover">Staring Motor Service</Link>
+        <Link to="/Head Light wiring Service" className="dropdown-item normal-style hover">Head Light wiring Service</Link>
+        <Link to="/Setup and Speekers Replacement" className="dropdown-item normal-style hover">Setup and Speekers Replacement</Link>
+      </div>
+    </div>
+            <Link to="/services" className="nav-item nav-link normal-style">Pages</Link>
             <Link to="/contact" className="nav-item nav-link normal-style">Contact</Link>
           </div>
           <a href="#" className="btn btn-custom py-4 px-lg-5 d-none d-lg-block normal-style">Book<i className="fa fa-arrow-right ms-3"></i></a>

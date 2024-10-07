@@ -109,6 +109,9 @@
 .navbar-light .navbar-nav .nav-link:hover {
     color: rgb(243, 240, 76);
 }
+.hover:hover{
+    color:rgb(243, 240, 76);
+}
 
 .navbar-light .navbar-nav .nav-link.active {
     color: #162396;

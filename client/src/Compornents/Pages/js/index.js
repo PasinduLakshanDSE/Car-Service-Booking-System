@@ -1,6 +1,7 @@
-export * from "../Home"
-export * from "../About"
-export * from "../Contact"
-export * from "../Services"
+export * from "../Home/Home"
+export * from "../About/About"
+export * from "../Contact/Contact"
+export * from "../Services/Services"
+export * from "../Services/Full"
 
 

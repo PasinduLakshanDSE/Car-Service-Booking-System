@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './css/About.css';
+//import '../css/About.css';
+import './About.css'
 import { Link } from "react-router-dom";
 
 const About = () => {
@@ -39,7 +40,7 @@ const About = () => {
       >
         <div className="container-fluid page-header-inner py-5">
           <div className="container text-center">
-            <h1 className="display-3 text-white mb-3 animated slideInDown normal-style">About Us</h1>
+            <h1 className="display-3 text-white mb-3 animated slideInDown normal-style">ABOUT US</h1>
             <nav aria-label="breadcrumb">
               <ol className="breadcrumb justify-content-center text-uppercase">
                 <li className="breadcrumb-item">

@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
 import axios from "axios";
-import "../Pages/css/Home.css";
-import "../Pages/css/anime.css";
+//import "../Pages/css/Home.css";
+import './Home.css'
+import "./anime.css";
 import 'bootstrap/dist/css/bootstrap.min.css';  // Ensure Bootstrap CSS is loaded
 import 'bootstrap/dist/js/bootstrap.bundle.min'; // Ensure Bootstrap JS is loaded
 import CountUp from 'react-countup';
 import WOW from 'wowjs';
 import 'animate.css'; // Ideal for simple CSS animations
-import Technicians from '../Technician'; // Ensure the correct import path
+import Technicians from '../../Technician'; // Ensure the correct import path
 import 'owl.carousel/dist/assets/owl.carousel.css'; // Import the required CSS for Owl Carousel
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import OwlCarousel from 'react-owl-carousel'; // Import OwlCarousel component
