@@ -21,6 +21,11 @@ import 'animate.css';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 import Footer from './Compornents/Footer';
+import Scanning from './Compornents/Pages/Services/Scanning';
+import Setup from './Compornents/Pages/Services/Setup';
+import Altenator from './Compornents/Pages/Services/Altenator';
+import Light from './Compornents/Pages/Services/Light.';
+import Starting from './Compornents/Pages/Services/Starting';
 
 
 
@@ -34,7 +39,12 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/Services/Full" element={<Full/>} />
+          <Route path="/FullWiring" element={<Full/>} />
+          <Route path="/Altenator" element={<Altenator/>} />
+          <Route path="/Light" element={<Light/>} />
+          <Route path="/Scanning" element={<Scanning/>} />
+          <Route path="/Setup" element={<Setup/>} />
+          <Route path="/Starting" element={<Starting/>} />
         </Routes>
         <Footer/>
     </div>

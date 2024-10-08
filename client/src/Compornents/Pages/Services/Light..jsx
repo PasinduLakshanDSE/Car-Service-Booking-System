@@ -3,7 +3,7 @@ import './Services.css'
 
 import { Link } from "react-router-dom";
 
-const Full = () => {
+const Light = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -40,35 +40,22 @@ const Full = () => {
       >
         <div className="container-fluid page-header-inner py-5">
           <div className="container text-center">
-            <h1 className="display-3 text-white mb-3 animated slideInDown normal-style">Full Wiring Service</h1>
+            <h1 className="display-3 text-white mb-3 animated slideInDown normal-style">Head Light wiring Service</h1>
             <nav aria-label="breadcrumb">
               <ol className="breadcrumb justify-content-center text-uppercase">
                 <li className="breadcrumb-item">
                   <Link to="/" className="nav-item nav-link normal-style" style={{ color: 'white' }}>Home</Link>
                 </li>
                 <li className="breadcrumb-item text-white active normal-style" aria-current="page">
-                  Full Wiring Service
+                Head Light wiring Service
                 </li>
               </ol>
             </nav>
           </div>
         </div>
       </div>
-
-      <div className='container-fluid mb-5 p-0'
-      /*style={{ backgroundImage: 'url(/wiring.jpg)' }}*/>
-      <div className="container-fluid  py-5">
-      <h4 className="mb-4 head-style">
-      <span className="text-color head-style normal-style font-size">Pioneer Auto Electricals</span> Is The Best Place For Your Auto Care</h4>
-        
-        <p className='text-start mx-5'>At Pioneer Auto Electric, our Full Wiring Service is tailored to ensure that your vehicle's electrical system operates at peak performance and is free from any faults or hazards. This service covers all aspects of your car's wiring, ranging from detailed diagnostics and repairs to system enhancements and upgrades. We understand that the electrical system is the backbone of modern vehicles, responsible for powering everything from lights and sensors to complex control modules and safety systems.</p>
-
-      </div>
-
-      </div>
-
     </div>
   );
 };
 
-export default Full;
+export default Light;

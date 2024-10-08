@@ -116,12 +116,12 @@ const NavBar = () => {
             <div className="nav-item dropdown" onClick={toggleDropdown}>
       <span className="nav-link dropdown-toggle normal-style" role="button">Services</span>
       <div className={`dropdown-menu fade-up m-0 ${dropdownOpen ? 'show' : ''}`}>
-        <Link to="/Full" className="dropdown-item normal-style hover">Full Wiring Service</Link>
-        <Link to="/Scanning Service" className="dropdown-item normal-style hover">Scanning Service</Link>
-        <Link to="/Altenator Service" className="dropdown-item normal-style hover">Altenator Service</Link>
-        <Link to="/Staring Motor Service" className="dropdown-item normal-style hover">Staring Motor Service</Link>
-        <Link to="/Head Light wiring Service" className="dropdown-item normal-style hover">Head Light wiring Service</Link>
-        <Link to="/Setup and Speekers Replacement" className="dropdown-item normal-style hover">Setup and Speekers Replacement</Link>
+        <Link to="/FullWiring" className="dropdown-item normal-style hover">Full Wiring Service</Link>
+        <Link to="/Scanning" className="dropdown-item normal-style hover">Scanning Service</Link>
+        <Link to="/Altenator" className="dropdown-item normal-style hover">Altenator Service</Link>
+        <Link to="/Starting" className="dropdown-item normal-style hover">Starting Motor Service</Link>
+        <Link to="/Light " className="dropdown-item normal-style hover">Head Light wiring Service</Link>
+        <Link to="/Setup" className="dropdown-item normal-style hover">Setup and Speekers Replacement</Link>
       </div>
     </div>
             <Link to="/services" className="nav-item nav-link normal-style">Pages</Link>

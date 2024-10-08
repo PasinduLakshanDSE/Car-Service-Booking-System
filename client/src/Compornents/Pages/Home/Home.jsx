@@ -138,7 +138,7 @@ const Home = () => {
                   <div className="row align-items-center justify-content-center justify-content-lg-start">
                     <div className="col-10 col-lg-7 text-center text-lg-start">
 
-                      <h1 className="display-3 text-white mb-4 pb-3 animated slideInDown" style={{ fontFamily: 'Barlow', fontWeight: 700 }}>Qualified Staring Motor Service</h1>
+                      <h1 className="display-3 text-white mb-4 pb-3 animated slideInDown" style={{ fontFamily: 'Barlow', fontWeight: 700 }}>Qualified Starting Motor Service</h1>
                       <a href="#" className="btn btn-custom py-3 px-5 animated slideInDown">Learn More<i className="fa fa-arrow-right ms-3"></i></a>
                     </div>
                     <div className="col-lg-5 d-none d-lg-flex animated zoomIn">
@@ -362,7 +362,7 @@ const Home = () => {
                 </button>
                 <button className="nav-link w-100 d-flex align-items-center text-start p-4 mb-4 custom-button" data-bs-toggle="pill" data-bs-target="#tab-pane-4" type="button">
                   <i className="fa fa-car-side fa-2x me-3"></i>
-                  <h4 className="m-0">Staring Motor Service</h4>
+                  <h4 className="m-0">Starting Motor Service</h4>
                 </button>
                 <button className="nav-link w-100 d-flex align-items-center text-start p-4 mb-4 custom-button" data-bs-toggle="pill" data-bs-target="#tab-pane-5" type="button">
                   <i className="fa bi-lightbulb-fill fa-2x me-3"></i>
