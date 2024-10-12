@@ -78,9 +78,7 @@ const Full = () => {
                 <div className="col-md-6 p-0 service1-img " style={{
                   backgroundColor: 'black',
                   backgroundImage: `url("/Full4.jpg")`,
-                  //backgroundSize: 'cover', 
-                  //backgroundPosition: 'center',
-                  //height: '600px' // Adjust as needed
+
                 }}>
                 </div>
 
@@ -89,26 +87,20 @@ const Full = () => {
                   <div className="row" style={{ height: '100%' }}>
                     <div className="col-12 p-0 service-img" style={{
                       backgroundColor: 'green',
-                      backgroundImage: `url("/Full2.jpg")`,
-                      //backgroundSize: 'cover', 
-                      // backgroundPosition: 'center',
-                      //height: '200px' // Adjust as needed
+                      backgroundImage: `url("/Full3.jpg")`,
+
                     }}>
                     </div>
                     <div className="col-12 p-0 service-img" style={{
                       backgroundColor: 'blue',
                       backgroundImage: `url("/Full5.jpg")`,
-                      //backgroundSize: 'cover', 
-                      //backgroundPosition: 'center',
-                      //height: '200px' // Adjust as needed
+
                     }}>
                     </div>
                     <div className="col-12 p-0 service-img" style={{
                       backgroundColor: 'orange',
                       backgroundImage: `url("/Full7.jpg")`,
-                      //backgroundSize: 'cover', 
-                      //backgroundPosition: 'center',
-                      //height: '200px' // Adjust as needed
+
                     }}>
                     </div>
                   </div>
@@ -117,19 +109,19 @@ const Full = () => {
             </div>
 
             {/* Right Column */}
-            <div className="col-lg-6 p-0 des "
+            <div className="col-lg-4 p-0 des "
 
             // Adjust as needed
             >
-              <h1 className="Snormal-style mx-6 px-4 my-3">
+              <h1 className="Snormal-style mx-0 px-0 mb-5 mt-4" style={{ textDecoration: 'underline' }}>
                 Complete Wiring Solutions at Pioneer Auto Electric
               </h1>
-              <p><i className="bi bi-check-circle-fill me-3"></i>Comprehensive Inspection</p>
-              <p><i className=" bi bi-check-circle-fill me-3"></i>Wiring Repairs and Replacements</p>
-              <p><i className="bi bi-check-circle-fill me-3"></i>Battery and Charging System Check</p>
-              <p><i className="bi bi-check-circle-fill me-3"></i>Safety & Compliance
+              <p className='text-start my-4 '><i className="bi bi-check-circle-fill me-3"></i>Comprehensive Inspection</p>
+              <p className='text-start my-4'><i className=" bi bi-check-circle-fill me-3"></i>Wiring Repairs and Replacements</p>
+              <p className='text-start my-4'><i className="bi bi-check-circle-fill me-3"></i>Battery and Charging System Check</p>
+              <p className='text-start my-4'><i className="bi bi-check-circle-fill me-3"></i>Safety & Compliance
                 Custom Wiring </p>
-              <p><i className="bi bi-check-circle-fill me-3"></i>Final Testing and Quality Check</p>
+              <p className='text-start my-4'><i className="bi bi-check-circle-fill me-3"></i>Final Testing and Quality Check</p>
 
             </div>
           </div>
