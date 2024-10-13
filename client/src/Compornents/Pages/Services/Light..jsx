@@ -36,7 +36,7 @@ const Light = () => {
     <div>
       <div
         className="container-fluid page-header mb-5 p-0"
-        style={{ backgroundImage: 'url(/wiring.jpg)' }} // Update path as needed
+        style={{ backgroundImage: 'url(/light7.jpg)' }} // Update path as needed
       >
         <div className="container-fluid page-header-inner py-5">
           <div className="container text-center">

@@ -36,7 +36,7 @@ const Scanning = () => {
     <div>
       <div
         className="container-fluid page-header mb-5 p-0"
-        style={{ backgroundImage: 'url(/wiring.jpg)' }} // Update path as needed
+        style={{ backgroundImage: 'url(/Scanning2.jpg)' }} // Update path as needed
       >
         <div className="container-fluid page-header-inner py-5">
           <div className="container text-center">

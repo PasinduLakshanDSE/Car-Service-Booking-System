@@ -26,6 +26,7 @@ import Setup from './Compornents/Pages/Services/Setup';
 import Altenator from './Compornents/Pages/Services/Altenator';
 import Light from './Compornents/Pages/Services/Light.';
 import Starting from './Compornents/Pages/Services/Starting';
+import Products from './Compornents/Pages/Products/Products';
 
 
 
@@ -45,6 +46,7 @@ function App() {
           <Route path="/Scanning" element={<Scanning/>} />
           <Route path="/Setup" element={<Setup/>} />
           <Route path="/Starting" element={<Starting/>} />
+          <Route path="/Products" element={<Products/>} />
         </Routes>
         <Footer/>
     </div>

@@ -124,7 +124,7 @@ const NavBar = () => {
         <Link to="/Setup" className="dropdown-item normal-style hover">Setup and Speekers Replacement</Link>
       </div>
     </div>
-            <Link to="/services" className="nav-item nav-link normal-style">Pages</Link>
+            <Link to="/Products" className="nav-item nav-link normal-style">Products</Link>
             <Link to="/contact" className="nav-item nav-link normal-style">Contact</Link>
           </div>
           <a href="#" className="btn btn-custom py-4 px-lg-5 d-none d-lg-block normal-style">Book<i className="fa fa-arrow-right ms-3"></i></a>

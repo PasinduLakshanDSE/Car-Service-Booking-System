@@ -1,0 +1,19 @@
+.btncustom2{
+    color: rgb(243, 240, 76);
+    background-color: #162396;
+}
+
+.btncustom{
+    color: rgb(5, 25, 117);
+    background-color: #0ec9b9;
+    
+}
+
+.btncustom:hover{
+    color: black;
+    background-color: #066785;
+}
+.btncustom2:hover{
+    color: black;
+    background-color: #1863d4;
+}
