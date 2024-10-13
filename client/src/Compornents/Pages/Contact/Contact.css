@@ -1,0 +1,17 @@
+.head-style {
+    font-family: 'Barlow';
+    font-weight: 700;
+}
+
+.text-color {
+    color: #162396;
+}
+
+.normal-style {
+    font-family: 'Archivo Black';
+}
+
+.btncustom {
+    color: rgb(243, 240, 76);
+    background-color: #162396;
+}
