@@ -16,3 +16,25 @@
     font-family: 'Barlow';
     font-weight: 700;
   }
+
+
+
+  .owner-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background: url('./ownerbg.jpg') no-repeat center center;*/
+    background-size: cover;
+    padding: 40px;
+    margin: 50px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    
+   
+   
+}
+
+.ownertext{
+  color: white;
+}
+  
+
