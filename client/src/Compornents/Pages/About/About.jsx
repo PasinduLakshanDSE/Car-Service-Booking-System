@@ -88,15 +88,15 @@ const About = () => {
   </div>
 </div>
 
-      <div className="row vision-mission-section mb-5">
-        <div className="col-md-6">
+      <div className="row vision-mission-section mb-5 mx-0 " style={{ backgroundImage: `url('./vision.jpg') `}}>
+        <div className="col-md-6 vision ">
           <h2>VISION</h2>
           <p>
             As the obvious choice and the most trusted automobile services company in Sri Lanka, our vision is to bring that pride 
             to the global market.
           </p>
         </div>
-        <div className="col-md-6">
+        <div className="col-md-6 mission ">
           <h2>MISSION</h2>
           <p>
             To achieve unparalleled recognition as the premium auto care service provider by objectifying trust, convenience, and uniqueness, and guiding our work force as a team striving to "continue the obvious choice."

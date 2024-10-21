@@ -1,64 +1,58 @@
-import React, { useEffect, useRef,useState } from 'react';  // Import useRef for GSAP
+import React, { useEffect, useRef, useState } from 'react';  // Import useRef for GSAP
 import { Link } from "react-router-dom";
 import "./css/Nav.css"; // Adjust the path based on your project structure
 import WOW from 'wowjs';
 import 'animate.css';
-import AOS from 'aos';//Best for scroll-triggered animations.
+import AOS from 'aos'; // Best for scroll-triggered animations.
 import 'aos/dist/aos.css';
-import { gsap } from 'gsap';//Great for complex, fully customizable JavaScript animations.
+import { gsap } from 'gsap'; // Great for complex, fully customizable JavaScript animations.
 import 'bootstrap/dist/css/bootstrap.min.css';  // Ensure Bootstrap CSS is loaded
 import 'bootstrap/dist/js/bootstrap.bundle.min'; // Ensure Bootstrap JS is loaded
-//import "./anime2.css"
-
-
 
 const NavBar = () => {
-
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
+
   // Reference for GSAP animation
   const navbarRef = useRef(null);
-  window.addEventListener('scroll', function () {
-    const navbar = document.querySelector('.navbar');
-
-    if (window.scrollY > 50) { // Change 50 to the scroll distance you prefer
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
 
   useEffect(() => {
-    // Initialize WOW.js animations
-    new WOW.WOW().init();
+    // Add scroll event listener
+    const handleScroll = () => {
+      const navbar = navbarRef.current;
 
-    const animateNav = () => {
       if (window.scrollY > 50) {
-        gsap.to(navbarRef.current, {
+        navbar.classList.add('scrolled');
+        gsap.to(navbar, {
           duration: 1,
-          y: 0, // Moves the navbar to its original position
+          y: 0,
           opacity: 1,
           ease: "power3.out",
         });
       } else {
-        gsap.to(navbarRef.current, {
+        navbar.classList.remove('scrolled');
+        gsap.to(navbar, {
           duration: 1,
-          y: -100, // Moves the navbar up out of view
+          y: -100,
           opacity: 0,
           ease: "power3.out",
         });
       }
     };
 
-    window.addEventListener('scroll', animateNav);
+    window.addEventListener('scroll', handleScroll);
 
-    // Clean up event listener
-    return () => window.removeEventListener('scroll', animateNav);
+    // Initialize WOW.js animations
+    new WOW.WOW().init();
+
+    return () => {
+      // Clean up event listener on unmount
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
-  // The empty dependency array ensures this only runs once when the component mounts
 
   return (
     <div>
@@ -68,7 +62,7 @@ const NavBar = () => {
           <div className="col-lg-7 px-5 text-start">
             <div className="h-100 d-inline-flex align-items-center py-3 me-4">
               <small className="fa fa-map-marker-alt custom-color me-2"></small>
-              <small>Vehera junction,281 Colombo Road, Kurunegala</small>
+              <small>Vehera junction, 281 Colombo Road, Kurunegala</small>
             </div>
             <div className="h-100 d-inline-flex align-items-center py-3">
               <small className="far fa-clock custom-color me-2"></small>
@@ -100,39 +94,49 @@ const NavBar = () => {
       {/* Top Bar End */}
 
       {/* Navbar Start */}
-      <nav ref={navbarRef} className="navbar  navbar-expand-lg navbar-light shadow  p-0 custom-nav-bg">
+      <nav ref={navbarRef} className="navbar navbar-expand-lg navbar-light shadow p-0 custom-nav-bg">
         <Link to="/" className="navbar-brand d-flex align-items-center px-4 px-lg-5">
           <img src="/logo.jpg" alt="CarServ Logo" style={{ width: '70px', marginRight: '30px' }} />
-          <h4 className='Name mb-2 mt-3 '>PIONEER AUTO ELECTRICALS</h4>
+          <h4 className='Name mb-2 mt-3 ' style={{ fontSize: '1.5rem', fontFamily: 'Arial, sans-serif' }}>PIONEER AUTO ELECTRICALS</h4>
         </Link>
         <button type="button" className="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarCollapse">
           <div className="navbar-nav ms-auto p-4 p-lg-0">
-            <Link to="/" className="nav-item nav-link normal-style">Home</Link>
-            <Link to="/about" className="nav-item nav-link normal-style">About</Link>
-            
+            <Link to="/" className="nav-item nav-link" style={navStyle}>Home</Link>
+            <Link to="/about" className="nav-item nav-link" style={navStyle}>About</Link>
+
             <div className="nav-item dropdown" onClick={toggleDropdown}>
-      <span className="nav-link dropdown-toggle normal-style" role="button">Services</span>
-      <div className={`dropdown-menu fade-up m-0 ${dropdownOpen ? 'show' : ''}`}>
-        <Link to="/FullWiring" className="dropdown-item normal-style hover">Full Wiring Service</Link>
-        <Link to="/Scanning" className="dropdown-item normal-style hover">Scanning Service</Link>
-        <Link to="/Altenator" className="dropdown-item normal-style hover">Altenator Service</Link>
-        <Link to="/Starting" className="dropdown-item normal-style hover">Starting Motor Service</Link>
-        <Link to="/Light " className="dropdown-item normal-style hover">Head Light wiring Service</Link>
-        <Link to="/Setup" className="dropdown-item normal-style hover">Setup and Speekers Replacement</Link>
-      </div>
-    </div>
-            <Link to="/Products" className="nav-item nav-link normal-style">Products</Link>
-            <Link to="/contact" className="nav-item nav-link normal-style">Contact</Link>
+              <span className="nav-link dropdown-toggle" role="button" style={navStyle}>Services</span>
+              <div className={`dropdown-menu fade-up m-0 ${dropdownOpen ? 'show' : ''}`}>
+                <Link to="/FullWiring" className="dropdown-item hover" style={navStyle}>Full Wiring Service</Link>
+                <Link to="/Scanning" className="dropdown-item hover" style={navStyle}>Scanning Service</Link>
+                <Link to="/Altenator" className="dropdown-item hover" style={navStyle}>Altenator Service</Link>
+                <Link to="/Starting" className="dropdown-item hover" style={navStyle}>Starting Motor Service</Link>
+                <Link to="/Light" className="dropdown-item hover" style={navStyle}>Head Light Wiring Service</Link>
+                <Link to="/Setup" className="dropdown-item hover" style={navStyle}>Setup and Speakers Replacement</Link>
+              </div>
+            </div>
+            <Link to="/Products" className="nav-item nav-link" style={navStyle}>Products</Link>
+            <Link to="/contact" className="nav-item nav-link" style={navStyle}>Contact</Link>
           </div>
-          <a href="#" className="btn btn-custom py-4 px-lg-5 d-none d-lg-block normal-style">Book<i className="fa fa-arrow-right ms-3"></i></a>
+          <a href="#" className="btn btn-custom py-4 px-lg-5 d-none d-lg-block" style={navStyle}>
+            Book <i className="fa fa-arrow-right ms-3"></i>
+          </a>
         </div>
       </nav>
       {/* Navbar End */}
     </div>
   );
+};
+
+// Reusable style object
+const navStyle = {
+  fontSize: '1.0rem',
+  fontWeight: 'bold',
+  fontFamily: 'Arial, sans-serif',
+  fontStretch: 'expanded'
 };
 
 export default NavBar;

@@ -36,5 +36,30 @@
 .ownertext{
   color: white;
 }
-  
+
+.vision-mission-section {
+  /*display: flex;*/
+  justify-content: space-between;
+  align-items: flex-start;
+  /*background: url('vision.jpg') no-repeat center center;*/
+  background-size: cover;
+  padding: 100px;
+  color: white;
+}
+
+.vision {
+  width: auto;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.6); /* semi-transparent background */
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.mission {
+  width: auto;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.6); /* semi-transparent background */
+  padding: 30px;
+  border-radius: 10px;
+}
 
