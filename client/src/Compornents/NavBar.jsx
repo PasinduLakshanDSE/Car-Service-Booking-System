@@ -54,6 +54,12 @@ const NavBar = () => {
     };
   }, []);
 
+  // Function to handle login button click
+  const handleLoginClick = () => {
+    alert("Login button clicked!");
+    // Here, you can trigger a modal or redirect to a login API
+  };
+
   return (
     <div>
       {/* Top Bar Start */}
@@ -96,8 +102,8 @@ const NavBar = () => {
       {/* Navbar Start */}
       <nav ref={navbarRef} className="navbar navbar-expand-lg navbar-light shadow p-0 custom-nav-bg">
         <Link to="/" className="navbar-brand d-flex align-items-center px-4 px-lg-5">
-          <img src="/logo.jpg" alt="CarServ Logo" style={{ width: '70px', marginRight: '30px' }} />
-          <h4 className='Name mb-2 mt-3 ' style={{ fontSize: '1.5rem', fontFamily: 'Arial, sans-serif' }}>PIONEER AUTO ELECTRICALS</h4>
+          <img src="/logo.jpg" alt="CarServ Logo" style={{ width: '60px', marginRight: '30px' }} />
+          <h4 className='Name mb-2 mt-3 ' style={{ fontSize: '1.4rem', fontFamily: 'Arial, sans-serif' }}>PIONEER AUTO ELECTRICALS</h4>
         </Link>
         <button type="button" className="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
           <span className="navbar-toggler-icon"></span>
@@ -120,10 +126,15 @@ const NavBar = () => {
             </div>
             <Link to="/Products" className="nav-item nav-link" style={navStyle}>Products</Link>
             <Link to="/contact" className="nav-item nav-link" style={navStyle}>Contact</Link>
+            
           </div>
-          <a href="#" className="btn btn-custom py-4 px-lg-5 d-none d-lg-block" style={navStyle}>
+          <a href="#" className="btn btn-custom  d-none d-lg-block"  style={{  padding: '20px 20px', fontSize: '1.2rem' }}>
             Book <i className="fa fa-arrow-right ms-3"></i>
           </a>
+           {/* Login Button */}
+           <button className="btn btn-sm btn-primary mx-3" onClick={handleLoginClick}>
+              Login
+            </button>
         </div>
       </nav>
       {/* Navbar End */}
