@@ -132,8 +132,8 @@ const NavBar = () => {
             Book <i className="fa fa-arrow-right ms-3"></i>
           </a>
            {/* Login Button */}
-           <button className="btn btn-sm btn-primary mx-3" onClick={handleLoginClick}>
-              Login
+           <button className="btn btn-lg mx-3" onClick={handleLoginClick}>
+           <i class="bi bi-person-fill " style={{ fontSize: '2rem' }}></i>
             </button>
         </div>
       </nav>

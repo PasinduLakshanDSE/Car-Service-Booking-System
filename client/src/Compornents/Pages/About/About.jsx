@@ -106,15 +106,15 @@ const About = () => {
 
       <div className="row goal-section mb-5">
         <div className="col-md-8">
-          <h2>Goals & Values</h2>
+          <h2 className='Afont-design'>Goals & Values</h2><br></br>
           <ul className="square-bullets">
-            <li>A focused approach on company objectives led by set KPI’s and proper monitoring processes through dashboards. 
+            <li className='text-start'>A focused approach on company objectives led by set KPI’s and proper monitoring processes through dashboards. 
                 (Increase revenue and manage cost.)</li>
-            <li>To be the most innovative company in the Automobile Industry with the use of new technology and new ideas which 
+            <li className='text-start' >To be the most innovative company in the Automobile Industry with the use of new technology and new ideas which 
                 will make Pioneer a differentiated brand.</li>
-            <li>Key emphasis on customer satisfaction and mapping out all processes that define a customer's journey to develop 
+            <li className='text-start'>Key emphasis on customer satisfaction and mapping out all processes that define a customer's journey to develop 
                 the best customer experience throughout the process.</li>
-            <li>Increase employee satisfaction through motivational programs and create loyalty and a sense of belonging to ensure 
+            <li className='text-start'>Increase employee satisfaction through motivational programs and create loyalty and a sense of belonging to ensure 
                 that both the company and employee mutually benefit.</li>
           </ul>
         </div>
@@ -124,7 +124,7 @@ const About = () => {
       </div>
 
       <section className="event-section mb-5">
-        <h2 className="text-center mb-4">EVENTS</h2>
+        <h2 className="text-center mb-4 Afont-design">EVENTS</h2>
         <div className="row event-gallery">
           {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
             <div className="col-6 col-md-3 mb-4 event-item" key={item}>
