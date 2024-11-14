@@ -1,27 +1,27 @@
-import React, { useEffect, useRef, useState } from 'react';  // Import useRef for GSAP
-import { Link } from "react-router-dom";
-import "./css/Nav.css"; // Adjust the path based on your project structure
+import React, { useEffect, useRef, useState } from 'react';
+import { Link, useNavigate } from "react-router-dom"; // Added useNavigate
+import "./css/Nav.css";
 import WOW from 'wowjs';
 import 'animate.css';
-import AOS from 'aos'; // Best for scroll-triggered animations.
+import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { gsap } from 'gsap'; // Great for complex, fully customizable JavaScript animations.
-import 'bootstrap/dist/css/bootstrap.min.css';  // Ensure Bootstrap CSS is loaded
-import 'bootstrap/dist/js/bootstrap.bundle.min'; // Ensure Bootstrap JS is loaded
+import { gsap } from 'gsap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 const NavBar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const navigate = useNavigate(); // Initialize navigate for routing
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
-  // Reference for GSAP animation
   const navbarRef = useRef(null);
 
   useEffect(() => {
-    // Add scroll event listener
     const handleScroll = () => {
+      if (!navbarRef.current) return; // Check if navbarRef exists
       const navbar = navbarRef.current;
 
       if (window.scrollY > 50) {
@@ -44,25 +44,23 @@ const NavBar = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-
-    // Initialize WOW.js animations
     new WOW.WOW().init();
 
     return () => {
-      // Clean up event listener on unmount
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
-  // Function to handle login button click
   const handleLoginClick = () => {
-    alert("Login button clicked!");
-    // Here, you can trigger a modal or redirect to a login API
+    navigate('/LoginForm'); // Redirect to login page
+  };
+
+  const handleBookClick = () => {
+    navigate('/LoginForm'); // Redirect to login page
   };
 
   return (
     <div>
-      {/* Top Bar Start */}
       <div className="container-fluid bg-light p-0 top-bar">
         <div className="row gx-0 d-none d-lg-flex">
           <div className="col-lg-7 px-5 text-start">
@@ -97,13 +95,11 @@ const NavBar = () => {
           </div>
         </div>
       </div>
-      {/* Top Bar End */}
 
-      {/* Navbar Start */}
       <nav ref={navbarRef} className="navbar navbar-expand-lg navbar-light shadow p-0 custom-nav-bg">
         <Link to="/" className="navbar-brand d-flex align-items-center px-4 px-lg-5">
           <img src="/logo.jpg" alt="CarServ Logo" style={{ width: '60px', marginRight: '30px' }} />
-          <h4 className='Name mb-2 mt-3 ' style={{ fontSize: '1.4rem', fontFamily: 'Arial, sans-serif' }}>PIONEER AUTO ELECTRICALS</h4>
+          <h4 className="Name mb-2 mt-3" style={{ fontSize: '1.4rem', fontFamily: 'Arial, sans-serif' }}>PIONEER AUTO ELECTRICALS</h4>
         </Link>
         <button type="button" className="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
           <span className="navbar-toggler-icon"></span>
@@ -113,7 +109,7 @@ const NavBar = () => {
             <Link to="/" className="nav-item nav-link" style={navStyle}>Home</Link>
             <Link to="/about" className="nav-item nav-link" style={navStyle}>About</Link>
 
-            <div className="nav-item dropdown" onClick={toggleDropdown}>
+            <div className="nav-item dropdown" onClick={toggleDropdown} aria-expanded={dropdownOpen}>
               <span className="nav-link dropdown-toggle" role="button" style={navStyle}>Services</span>
               <div className={`dropdown-menu fade-up m-0 ${dropdownOpen ? 'show' : ''}`}>
                 <Link to="/FullWiring" className="dropdown-item hover" style={navStyle}>Full Wiring Service</Link>
@@ -126,23 +122,21 @@ const NavBar = () => {
             </div>
             <Link to="/Products" className="nav-item nav-link" style={navStyle}>Products</Link>
             <Link to="/contact" className="nav-item nav-link" style={navStyle}>Contact</Link>
-            
           </div>
-          <a href="#" className="btn btn-custom  d-none d-lg-block"  style={{  padding: '20px 20px', fontSize: '1.2rem' }}>
+
+          <button className="btn btn-lg btn-custom " onClick={handleBookClick} style={{ padding: '20px 20px', fontSize: '1.2rem' }}>
             Book <i className="fa fa-arrow-right ms-3"></i>
-          </a>
-           {/* Login Button */}
-           <button className="btn btn-lg mx-3" onClick={handleLoginClick}>
-           <i class="bi bi-person-fill " style={{ fontSize: '2rem' }}></i>
-            </button>
+          </button>
+
+          <button className="btn btn-lg mx-3" onClick={handleLoginClick}>
+            <i className="bi bi-person-fill" style={{ fontSize: '2rem' }}></i>
+          </button>
         </div>
       </nav>
-      {/* Navbar End */}
     </div>
   );
 };
 
-// Reusable style object
 const navStyle = {
   fontSize: '1.0rem',
   fontWeight: 'bold',
