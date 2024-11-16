@@ -10,6 +10,7 @@ import WOW from 'wowjs';
 import 'animate.css';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+//import Log from './Compornents/SignIn_SignUp/Log';
 
 
 
@@ -24,6 +25,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
     <App />
+    
     </BrowserRouter>
   </React.StrictMode>
 );

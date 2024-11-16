@@ -52,7 +52,7 @@ const NavBar = () => {
   }, []);
 
   const handleLoginClick = () => {
-    navigate('/LoginForm'); // Redirect to login page
+    navigate('/Log'); // Redirect to login page
   };
 
   const handleBookClick = () => {
@@ -124,7 +124,7 @@ const NavBar = () => {
             <Link to="/contact" className="nav-item nav-link" style={navStyle}>Contact</Link>
           </div>
 
-          <button className="btn btn-lg btn-custom " onClick={handleBookClick} style={{ padding: '20px 20px', fontSize: '1.2rem' }}>
+          <button className="btn btn-lg btn-custom " onClick={handleBookClick} style={{ padding: '15px 22px', fontSize: '1.2rem' }}>
             Book <i className="fa fa-arrow-right ms-3"></i>
           </button>
 

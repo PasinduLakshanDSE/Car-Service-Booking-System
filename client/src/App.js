@@ -20,13 +20,14 @@ import Scanning from './Compornents/Pages/Services/Scanning';
 import Setup from './Compornents/Pages/Services/Setup';
 import Starting from './Compornents/Pages/Services/Starting';
 import Products from './Compornents/Pages/Products/Products';
-import AuthForm from './Compornents/LoginForm';
+//import AuthForm from './Compornents/LoginForm';
+import Log from './Compornents/SignIn_SignUp/Log';
 
 function App() {
   const location = useLocation();  // Get the current route location
 
   // List routes where NavBar and Footer should not appear
-  const noNavFooterRoutes = ['/LoginForm'];
+  const noNavFooterRoutes = ['/Log'];
 
   return (
     <div className="App">
@@ -45,7 +46,7 @@ function App() {
         <Route path="/Setup" element={<Setup />} />
         <Route path="/Starting" element={<Starting />} />
         <Route path="/Products" element={<Products />} />
-        <Route path="/LoginForm" element={<AuthForm />} />
+        <Route path="/Log" element={<Log/>} />
       </Routes>
 
       {/* Render Footer only if the current route is not '/LoginForm' */}
