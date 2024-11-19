@@ -1,5 +1,8 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from "axios";
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { Alert } from "react-bootstrap"; 
 
 function SignInForm() {
   const [state, setState] = React.useState({
@@ -10,6 +13,8 @@ function SignInForm() {
     email: "",
     password: ""
   });
+  const [showError, setShowError] = React.useState(false); // Error alert state
+  const navigate = useNavigate(); // Hook for navigation
 
   const handleChange = (evt) => {
     const { name, value } = evt.target;
@@ -47,23 +52,38 @@ function SignInForm() {
     return valid;
   };
 
-  const handleOnSubmit = (evt) => {
+  const handleOnSubmit = async (evt) => {
     evt.preventDefault();
 
     if (validate()) {
-      console.log("Form submitted:", state);
+      try {
+        const result = await axios.post('/api/users/SignInForm', state);
+        console.log(result.data);
+        setState({ email: "", password: "" });
+        setShowError(false); // Hide error on successful login
 
-      // Clear form fields after successful submission
-      setState({
-        email: "",
-        password: ""
-      });
+        // Store user data and navigate to the home page
+        localStorage.setItem('currentUser', JSON.stringify(result.data));
+        navigate('/');  // Navigate to the home page after login
+      } catch (error) {
+        console.error(error);
+        setShowError(true); // Show error alert if login fails
+      }
+    } else {
+      setShowError(true); // Show error alert if validation fails
     }
   };
 
   return (
     <div className="form-container sign-in-container">
+     
       <form className="form" onSubmit={handleOnSubmit}>
+         {/* Error Alert */}
+      {showError && (
+        <Alert variant="danger" className="mt-2">
+          Invalid email or password. Please try again.
+        </Alert>
+      )}
         <h1 className="title pb-3">Sign in</h1>
         <input
           className={`input ${errors.email && "is-invalid"}`}

@@ -24,7 +24,13 @@ router.post("/SignInForm",async(req,res)=>{
     try{
         const user = await User.findOne({email: email , password: password})
         if(user){
-            res.send(user) 
+            const temp ={
+                name : user.name,
+                email: user.email,
+                isAdmin: user.isAdmin,
+                _id : user._id,
+            }
+            res.send(temp) 
         }else{
             return res.status(400).json({message : ' Login  Faield'})
 

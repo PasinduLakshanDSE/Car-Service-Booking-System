@@ -1,6 +1,7 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
+import { Alert } from "react-bootstrap";
 
 function SignUpForm() {
   const [state, setState] = React.useState({
@@ -18,6 +19,8 @@ function SignUpForm() {
     email: "",
     password: ""
   });
+
+  const [showAlert, setShowAlert] = React.useState(false); // State for success alert
 
   const handleChange = (evt) => {
     const { name, value } = evt.target;
@@ -73,20 +76,29 @@ function SignUpForm() {
 
     if (validate()) {
       try {
-          const result = await axios.post('/api/users/SignUpForm', state);
-          console.log(result.data);
-          setState({ name: "", contactNo: "", email: "", password: "" });
+        const result = await axios.post('/api/users/SignUpForm', state);
+        console.log(result.data);
+        setState({ name: "", contactNo: "", email: "", password: "" });
+        setShowAlert(true); // Show success alert
+        setTimeout(() => setShowAlert(false), 3000); // Hide alert after 3 seconds
       } catch (error) {
-          console.error(error);
+        console.error(error);
       }
     }
   };
 
   return (
     <div className="form-container sign-up-container">
+      
+
       <form className="form" onSubmit={handleOnSubmit}>
+      {showAlert && (
+        <Alert variant="success" className="mt-2">
+          Registration successful! 
+        </Alert>
+      )}
         <h1 className="title pb-3">Create Account</h1>
-        
+
         <input
           className={`input ${errors.name && "is-invalid"}`}
           type="text"
@@ -96,8 +108,6 @@ function SignUpForm() {
           placeholder="Name"
         />
         {errors.name && <small className="text-danger">{errors.name}</small>}
-
-        
 
         <input
           className={`input ${errors.contactNo && "is-invalid"}`}
