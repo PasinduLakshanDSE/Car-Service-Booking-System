@@ -22,6 +22,8 @@ import Starting from './Compornents/Pages/Services/Starting';
 import Products from './Compornents/Pages/Products/Products';
 //import AuthForm from './Compornents/LoginForm';
 import Log from './Compornents/SignIn_SignUp/Log';
+import SignInForm from './Compornents/SignIn_SignUp/SignIn';
+import SignUpForm from './Compornents/SignIn_SignUp/SignUp';
 
 function App() {
   const location = useLocation();  // Get the current route location
@@ -47,6 +49,8 @@ function App() {
         <Route path="/Starting" element={<Starting />} />
         <Route path="/Products" element={<Products />} />
         <Route path="/Log" element={<Log/>} />
+        <Route path='/SignInForm' element={<SignInForm/>}/>
+        <Route path='/SignUpForm' element={<SignUpForm/>}/>
       </Routes>
 
       {/* Render Footer only if the current route is not '/LoginForm' */}

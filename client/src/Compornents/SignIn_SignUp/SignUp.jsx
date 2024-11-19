@@ -1,5 +1,6 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from "axios";
 
 function SignUpForm() {
   const [state, setState] = React.useState({
@@ -35,15 +36,13 @@ function SignUpForm() {
 
   const validate = () => {
     let valid = true;
-    const newErrors = { name: "",  contactNo: "", email: "", password: "" };
+    const newErrors = { name: "", address: "", contactNo: "", email: "", password: "" };
 
     // Name validation
     if (!state.name.trim()) {
       newErrors.name = "Name is required.";
       valid = false;
     }
-
-    
 
     // Contact Number validation (basic regex for numbers)
     const contactNoRegex = /^[0-9]{10}$/;
@@ -69,20 +68,17 @@ function SignUpForm() {
     return valid;
   };
 
-  const handleOnSubmit = (evt) => {
+  const handleOnSubmit = async (evt) => {
     evt.preventDefault();
 
     if (validate()) {
-      console.log("Form submitted successfully:", state);
-
-      // Clear form fields after successful submission
-      setState({
-        name: "",
-        address: "",
-        contactNo: "",
-        email: "",
-        password: ""
-      });
+      try {
+          const result = await axios.post('/api/users/SignUpForm', state);
+          console.log(result.data);
+          setState({ name: "", contactNo: "", email: "", password: "" });
+      } catch (error) {
+          console.error(error);
+      }
     }
   };
 
@@ -102,7 +98,6 @@ function SignUpForm() {
         {errors.name && <small className="text-danger">{errors.name}</small>}
 
         
-        {errors.address && <small className="text-danger">{errors.address}</small>}
 
         <input
           className={`input ${errors.contactNo && "is-invalid"}`}

@@ -4,7 +4,8 @@ import SignInForm from "./SignIn";
 import SignUpForm from "./SignUp";
 
  function Log() {
-  const [type, setType] = useState("signIn");
+  const [type, setType] = useState("signUp");
+  
   const handleOnClick = text => {
     if (text !== type) {
       setType(text);
