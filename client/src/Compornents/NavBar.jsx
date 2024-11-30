@@ -10,11 +10,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 const NavBar = () => {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);  // Services dropdown
+  const [userDropdownOpen, setUserDropdownOpen] = useState(false);  // User dropdown
   const navigate = useNavigate(); // Initialize navigate for routing
+  const user = JSON.parse(localStorage.getItem('currentUser'));
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
+  };
+
+  const handleUserClick = () => {
+    setUserDropdownOpen(!userDropdownOpen); // Correctly updating the user dropdown state
   };
 
   const navbarRef = useRef(null);
@@ -56,46 +62,16 @@ const NavBar = () => {
   };
 
   const handleBookClick = () => {
-    navigate('/LoginForm'); // Redirect to login page
+    navigate('/LoginForm'); // Redirect to booking form page
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('currentUser'); // Remove user data
+    navigate('/Log'); // Redirect to login page
   };
 
   return (
     <div>
-      <div className="container-fluid bg-light p-0 top-bar">
-        <div className="row gx-0 d-none d-lg-flex">
-          <div className="col-lg-7 px-5 text-start">
-            <div className="h-100 d-inline-flex align-items-center py-3 me-4">
-              <small className="fa fa-map-marker-alt custom-color me-2"></small>
-              <small>Vehera junction, 281 Colombo Road, Kurunegala</small>
-            </div>
-            <div className="h-100 d-inline-flex align-items-center py-3">
-              <small className="far fa-clock custom-color me-2"></small>
-              <small>Mon - Fri : 08.30 AM - 09.00 PM</small>
-            </div>
-          </div>
-          <div className="col-lg-5 px-5 text-end">
-            <div className="h-100 d-inline-flex align-items-center py-3 me-4">
-              <small className="fa fa-phone-alt custom-color me-2"></small>
-              <small>+94 777 442637</small>
-            </div>
-            <div className="h-100 d-inline-flex align-items-center">
-              <a className="btn btn-sm-square bg-white custom-color me-1" href="#">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a className="btn btn-sm-square bg-white custom-color me-1" href="#">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a className="btn btn-sm-square bg-white custom-color me-1" href="#">
-                <i className="fab fa-linkedin-in"></i>
-              </a>
-              <a className="btn btn-sm-square bg-white custom-color me-0" href="#">
-                <i className="fab fa-instagram"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <nav ref={navbarRef} className="navbar navbar-expand-lg navbar-light shadow p-0 custom-nav-bg">
         <Link to="/" className="navbar-brand d-flex align-items-center px-4 px-lg-5">
           <img src="/logo.jpg" alt="CarServ Logo" style={{ width: '60px', marginRight: '30px' }} />
@@ -108,7 +84,6 @@ const NavBar = () => {
           <div className="navbar-nav ms-auto p-4 p-lg-0">
             <Link to="/" className="nav-item nav-link" style={navStyle}>Home</Link>
             <Link to="/about" className="nav-item nav-link" style={navStyle}>About</Link>
-
             <div className="nav-item dropdown" onClick={toggleDropdown} aria-expanded={dropdownOpen}>
               <span className="nav-link dropdown-toggle" role="button" style={navStyle}>Services</span>
               <div className={`dropdown-menu fade-up m-0 ${dropdownOpen ? 'show' : ''}`}>
@@ -124,13 +99,29 @@ const NavBar = () => {
             <Link to="/contact" className="nav-item nav-link" style={navStyle}>Contact</Link>
           </div>
 
-          <button className="btn btn-lg btn-custom " onClick={handleBookClick} style={{ padding: '15px 22px', fontSize: '1.2rem' }}>
+          <button className="btn btn-lg btn-custom" onClick={handleBookClick} style={{ padding: '15px 22px', fontSize: '1.2rem' }}>
             Book <i className="fa fa-arrow-right ms-3"></i>
           </button>
 
-          <button className="btn btn-lg mx-3" onClick={handleLoginClick}>
-            <i className="bi bi-person-fill" style={{ fontSize: '2rem' }}></i>
-          </button>
+          {user ? (
+            <div className="position-relative">
+              <button className="btn btn-lg mx-3" onClick={handleUserClick}>
+                <i className="bi bi-person-fill-check" style={{ fontSize: '2rem' }}></i>
+              </button>
+              {userDropdownOpen && (
+                <div className="dropdown-menu dropdown-menu-right show" style={{ top: '50px', right: '0', position: 'absolute' }}>
+                  <span className="dropdown-item uname" style={navStyle}>Hello, {user.name}</span>
+                  <button className="dropdown-item btn btn-link" onClick={handleLogout} style={{ color: 'red', fontSize:'15px' }}>
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <button className="btn btn-lg mx-3" onClick={handleLoginClick}>
+              <i className="bi bi-person-fill" style={{ fontSize: '2rem' }}></i>
+            </button>
+          )}
         </div>
       </nav>
     </div>
