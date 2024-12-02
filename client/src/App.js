@@ -24,17 +24,22 @@ import Products from './Compornents/Pages/Products/Products';
 import Log from './Compornents/SignIn_SignUp/Log';
 import SignInForm from './Compornents/SignIn_SignUp/SignIn';
 import SignUpForm from './Compornents/SignIn_SignUp/SignUp';
+import Booking from './Compornents/BookingFrom/Booking';
 
 function App() {
   const location = useLocation();  // Get the current route location
 
-  // List routes where NavBar and Footer should not appear
-  const noNavFooterRoutes = ['/Log'];
+   // Combine all routes where NavBar and Footer should not appear
+   const noNavFooterRoutes = ['/Log', '/Booking'];
+
+   // Check if the current route matches any in the list
+   const shouldHideNavFooter = noNavFooterRoutes.includes(location.pathname);
+ 
 
   return (
     <div className="App">
-      {/* Render NavBar only if the current route is not '/LoginForm' */}
-      {!noNavFooterRoutes.includes(location.pathname) && <NavBar />}
+       {/* Conditionally render NavBar */}
+       {!shouldHideNavFooter && <NavBar />}
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -51,10 +56,11 @@ function App() {
         <Route path="/Log" element={<Log/>} />
         <Route path='/SignInForm' element={<SignInForm/>}/>
         <Route path='/SignUpForm' element={<SignUpForm/>}/>
+        <Route path='/Booking' element={<Booking/>}/>
       </Routes>
 
-      {/* Render Footer only if the current route is not '/LoginForm' */}
-      {!noNavFooterRoutes.includes(location.pathname) && <Footer />}
+       {/* Conditionally render Footer */}
+       {!shouldHideNavFooter && <Footer />}
     </div>
   );
 }

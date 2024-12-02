@@ -62,7 +62,7 @@ const NavBar = () => {
   };
 
   const handleBookClick = () => {
-    navigate('/LoginForm'); // Redirect to booking form page
+    navigate('/Booking'); // Redirect to booking form page
   };
 
   const handleLogout = () => {

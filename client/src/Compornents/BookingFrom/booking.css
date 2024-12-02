@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+
+
+.bookmain{
+    background: #f6f5f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "Montserrat", sans-serif;
+    height: 100vh;
+    margin: -20px 0 50px;
+}
+
+.maincontainer {
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 550px;
+    background: linear-gradient(#071b55, #050357); /* Corrected this line */
+}
+
+.title {
+    font-weight: bold;
+    margin: 20px;
+    color: #f6f5f7;
+    
+  }
+
+  .appointment-picker {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background-color: #1c1c2e;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: auto;
+  }
+  
+  .date-time-selector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .date-picker {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .time-slots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .time-slot {
+    padding: 10px 15px;
+    background-color: #323a56;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .time-slot:hover {
+    background-color: #3b4b79;
+  }
+  
+  .time-slot.selected {
+    background-color: #006eff;
+  }
+  
+  .selected-time-section {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #2d3c62;
+    border-radius: 5px;
+  }
+  
+  .cancel-button {
+    padding: 10px 15px;
+    background-color: #006eff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .cancel-button:hover {
+    background-color: #8ac9e2;
+  }
+  
+
