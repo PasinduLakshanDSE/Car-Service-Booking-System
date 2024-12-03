@@ -12,7 +12,7 @@ const Booking = () =>{
 
     const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
-  const timeSlots = ["3:30 AM", "4:30 AM", "5:30 AM", "8:30 AM", "9:30 AM", "10:30 AM"];
+  const timeSlots = ["8:30 AM", "4:30 AM", "5:30 AM", "8:30 AM", "9:30 AM", "10:30 AM"];
 
   const handleCancelSelection = () => {
     setSelectedDate(null);
@@ -23,7 +23,7 @@ const Booking = () =>{
     return(
         <div className="bookmain" >
             <div className="maincontainer">
-                <h1 className="title">Hello, Customer!</h1>
+                <h1 className="Title">Hello, Customer!</h1>
 
                 <div className="appointment-picker">
       <h5>Select an Appointment Date</h5>

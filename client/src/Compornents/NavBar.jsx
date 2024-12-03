@@ -72,6 +72,41 @@ const NavBar = () => {
 
   return (
     <div>
+       <div className="container-fluid bg-light p-0 top-bar">
+        <div className="row gx-0 d-none d-lg-flex">
+          <div className="col-lg-7 px-5 text-start">
+            <div className="h-100 d-inline-flex align-items-center py-3 me-4">
+              <small className="fa fa-map-marker-alt custom-color me-2"></small>
+              <small>Vehera junction, 281 Colombo Road, Kurunegala</small>
+            </div>
+            <div className="h-100 d-inline-flex align-items-center py-3">
+              <small className="far fa-clock custom-color me-2"></small>
+              <small>Mon - Fri : 08.30 AM - 09.00 PM</small>
+            </div>
+          </div>
+          <div className="col-lg-5 px-5 text-end">
+            <div className="h-100 d-inline-flex align-items-center py-3 me-4">
+              <small className="fa fa-phone-alt custom-color me-2"></small>
+              <small>+94 777 442637</small>
+            </div>
+            <div className="h-100 d-inline-flex align-items-center">
+              <a className="btn btn-sm-square bg-white custom-color me-1" href="#">
+                <i className="fab fa-facebook-f"></i>
+              </a>
+              <a className="btn btn-sm-square bg-white custom-color me-1" href="#">
+                <i className="fab fa-twitter"></i>
+              </a>
+              <a className="btn btn-sm-square bg-white custom-color me-1" href="#">
+                <i className="fab fa-linkedin-in"></i>
+              </a>
+              <a className="btn btn-sm-square bg-white custom-color me-0" href="#">
+                <i className="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <nav ref={navbarRef} className="navbar navbar-expand-lg navbar-light shadow p-0 custom-nav-bg">
         <Link to="/" className="navbar-brand d-flex align-items-center px-4 px-lg-5">
           <img src="/logo.jpg" alt="CarServ Logo" style={{ width: '60px', marginRight: '30px' }} />
