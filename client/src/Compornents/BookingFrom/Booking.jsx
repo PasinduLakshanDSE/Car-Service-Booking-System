@@ -270,7 +270,7 @@ const Booking = () => {
                           htmlFor={`technician-${index}-${techIndex}`}
                           className="label"
                         >
-                          {technician}<div><a className="text-secondary border-bottom" href="">
+                          {technician}<div><a className="text-secondary border-bottom read" href="">
                             Read More
                           </a></div>
                         </label>
@@ -285,11 +285,11 @@ const Booking = () => {
           {Object.keys(selectedServices).length > 0 && (
             <div className="selection-summary">
               <h4 className="subtitle">Selected Services and Technicians</h4>
-              <ul>
+              <ul className="ul">
                 {Object.keys(selectedServices)
                   .filter((serviceName) => selectedServices[serviceName])
                   .map((serviceName) => (
-                    <li key={serviceName}>
+                    <li key={serviceName} className="li">
                       <strong>Service:</strong> {serviceName}
                       <br />
                       <strong>Technician:</strong>{" "}

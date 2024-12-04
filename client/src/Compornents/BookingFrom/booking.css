@@ -30,6 +30,7 @@
   font-weight: bold;
   margin: 20px;
   color: #f6f5f7;
+  padding-top: 30px;
 
 }
 
@@ -175,6 +176,46 @@ input[type="radio"] {
   transition: border-color 0.3s ease;
 }
 
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .vehicle-input {
+    font-size: 12px;
+    padding: 6px 10px;
+    /* Slightly smaller padding */
+  }
+}
+
+/* Extra small screens (mobile devices) */
+@media (max-width: 480px) {
+  .vehicle-input {
+    font-size: 12px;
+    padding: 5px 8px;
+
+  }
+
+  .vehicle-container {
+
+    padding: auto;
+    padding-left: 30px;
+    padding-right: 10px;
+
+
+
+    width: 300px;
+
+  }
+
+  .appointment-picker {
+
+
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+
+  }
+}
+
 .vehicle-number-input:focus {
   border-color: #0056b3;
   box-shadow: 0 0 4px #007bff;
@@ -258,23 +299,23 @@ input[type="radio"] {
   color: #fff;
 }
 
-ul {
+.ul {
   list-style-type: none;
   padding: 0;
 }
 
-li {
+.li {
   margin-bottom: 10px;
   color: #ddd;
 }
 
-a {
+.read {
   text-decoration: none;
   color: #84c4f2;
   margin-left: 5px;
 }
 
-a:hover {
+.read:hover {
   text-decoration: underline;
 }
 
