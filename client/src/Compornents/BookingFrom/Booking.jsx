@@ -1,111 +1,120 @@
 import React, { useState } from "react";
-
-import './booking.css'
+import './booking.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-
-
-
-
 const Booking = () => {
-
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
   const timeSlots = ["8:30 AM", "10:30 AM", "12:30 PM", "2:00 PM", "4:00 PM", "6:00 PM"];
-
-  const handleCancelSelection = () => {
-    setSelectedDate(null);
-    setSelectedTime(null);
-  };
-
   const [selectedType, setSelectedType] = useState("");
   const [vehicleNumber, setVehicleNumber] = useState("");
-  const [vehicleModel, setVehicleModel] = useState("")
-  const [instructions, setInstructions] = useState("")
-  const [customerName, setName] = useState("")
-  const [customerContact, setContact] = useState("")
-  const [customerEmail, setEmail] = useState("")
-
-  const handleSelection = (event1) => {
-    setSelectedType(event1.target.value);
-  };
-
-  const handleChange = (event2) => {
-    setVehicleNumber(event2.target.value);
-  };
-
-  const handleModel = (event3) => {
-    setVehicleModel(event3.target.value)
-  }
-
-  const handleInstruction = (event4) => {
-    setInstructions(event4.target.value)
-  }
-
-  const handleName = (event5) => {
-    setName(event5.target.value)
-  }
-
-  const handleContact = (event6) => {
-    setContact(event6.target.value)
-  }
-  const handleEmail = (event7) => {
-    setEmail(event7.target.value)
-  }
-
-
-
-
-  const services = [
-    {
-      name: "Full Wiring Service",
-      technicians: ["John Doe", "Jane Smith"],
-    },
-    {
-      name: "Scanning Service",
-      technicians: ["Emily Davis", "Michael Brown"],
-    },
-    {
-      name: "Altenator Service",
-      technicians: ["Chris Johnson", "Sarah Wilson"],
-    },
-    {
-      name: "Starting Motor Service",
-      technicians: ["charli smith", "yhohan pereis"]
-    },
-    {
-      name: "Head Light wiring Service",
-      technicians: ["Chris Johnson", "Sarah Wilson"],
-    },
-    {
-      name: "Setup and Speekers Replacement",
-      technicians: ["Champan  Johnson", "Sarah Wilson"],
-    },
-  ];
-
-  // State for selected services and their technicians
+  const [vehicleModel, setVehicleModel] = useState("");
+  const [instructions, setInstructions] = useState("");
+  const [customerName, setName] = useState("");
+  const [customerContact, setContact] = useState("");
+  const [customerEmail, setEmail] = useState("");
+  const [errors, setErrors] = useState({});
   const [selectedServices, setSelectedServices] = useState({});
   const [selectedTechnicians, setSelectedTechnicians] = useState({});
 
-  // Handle service selection (checkboxes)
+  const services = [
+    { name: "Full Wiring Service", technicians: ["John Doe", "Jane Smith"] },
+    { name: "Scanning Service", technicians: ["Emily Davis", "Michael Brown"] },
+    { name: "Altenator Service", technicians: ["Chris Johnson", "Sarah Wilson"] },
+    { name: "Starting Motor Service", technicians: ["Charli Smith", "Yohan Pereis"] },
+    { name: "Head Light Wiring Service", technicians: ["Chris Johnson", "Sarah Wilson"] },
+    { name: "Setup and Speakers Replacement", technicians: ["Champan Johnson", "Sarah Wilson"] },
+  ];
+
+  const handleCancelSelection = () => {
+    setSelectedTime(null);
+  };
+
+  const handleSelection = (event) => {
+    setSelectedType(event.target.value);
+  };
+
+  const handleChange = (event) => {
+    setVehicleNumber(event.target.value);
+  };
+
+  const handleModel = (event) => {
+    setVehicleModel(event.target.value);
+  };
+
+  const handleInstruction = (event) => {
+    setInstructions(event.target.value);
+  };
+
+  const handleName = (event) => {
+    setName(event.target.value);
+  };
+
+  const handleContact = (event) => {
+    setContact(event.target.value);
+  };
+
+  const handleEmail = (event) => {
+    setEmail(event.target.value);
+  };
+
   const handleServiceSelection = (serviceName) => {
     setSelectedServices((prev) => ({
       ...prev,
-      [serviceName]: !prev[serviceName], // Toggle service selection
+      [serviceName]: !prev[serviceName],
     }));
+    if (selectedServices[serviceName]) {
+      setSelectedTechnicians((prev) => {
+        const updated = { ...prev };
+        delete updated[serviceName];
+        return updated;
+      });
+    }
+  };
+
+  const handleTechnicianSelection = (serviceName, technicianName) => {
     setSelectedTechnicians((prev) => ({
       ...prev,
-      [serviceName]: "", // Reset technician selection for toggled service
+      [serviceName]: technicianName,
     }));
   };
 
-  // Handle technician selection (radio buttons)
-  const handleTechnicianSelection = (serviceName, technician) => {
-    setSelectedTechnicians((prev) => ({
-      ...prev,
-      [serviceName]: technician,
-    }));
+  const validate = () => {
+    const newErrors = {};
+    if (!selectedDate) newErrors.date = "Please select a date.";
+    if (!selectedTime) newErrors.time = "Please select a time.";
+    if (!selectedType) newErrors.type = "Please select a vehicle type.";
+    if (!vehicleNumber.trim()) newErrors.vehicleNumber = "Vehicle number is required.";
+    if (!vehicleModel.trim()) newErrors.vehicleModel = "Vehicle model is required.";
+    if (!customerName.trim()) newErrors.name = "Customer name is required.";
+    if (!customerContact.trim() || !/^\d{10}$/.test(customerContact)) {
+      newErrors.contact = "Enter a valid 10-digit contact number.";
+    }
+    if (!customerEmail.trim() || !/\S+@\S+\.\S+/.test(customerEmail)) {
+      newErrors.email = "Enter a valid email address.";
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (validate()) {
+      alert("Booking successful!");
+      // Reset fields after successful booking
+      setSelectedDate(null);
+      setSelectedTime(null);
+      setSelectedType("");
+      setVehicleNumber("");
+      setVehicleModel("");
+      setInstructions("");
+      setName("");
+      setContact("");
+      setEmail("");
+      setSelectedServices({});
+      setSelectedTechnicians({});
+    }
   };
 
 
@@ -114,7 +123,7 @@ const Booking = () => {
     <div className="bookmain" >
       <div className="maincontainer">
         <h1 className="Title">Hello, Customer!</h1>
-
+        <form onSubmit={handleSubmit}>
         <div className="appointment-picker">
           <h5 style={{ marginBottom: '20px' }}>Select an Appointment Date</h5>
           <div className="date-time-selector">
@@ -126,6 +135,7 @@ const Booking = () => {
               className="date-picker"
               placeholderText="Select a date"
             />
+            {errors.date && <p className="error">{errors.date}</p>}
 
             {/* Display Selected Date */}
             {selectedDate && (
@@ -150,6 +160,7 @@ const Booking = () => {
                     {time}
                   </button>
                 ))}
+                {errors.time && <p className="error">{errors.time}</p>}
               </div>
             )}
           </div>
@@ -202,6 +213,7 @@ const Booking = () => {
                 {type}
               </label>
             ))}
+            {errors.type && <p className="error">{errors.type}</p>}
           </div>
         </div>
 
@@ -219,6 +231,7 @@ const Booking = () => {
             onChange={handleChange}
             placeholder="Enter vehicle number"
           />
+           {errors.vehicleNumber && <p className="error">{errors.vehicleNumber}</p>}
         </div>
 
         <div className="vehicle-container">
@@ -331,6 +344,7 @@ const Booking = () => {
               onChange={handleName}
               placeholder="Enter Your Name"
             />
+            {errors.name && <p className="error">{errors.name}</p>}
           </div>
 
           <div className="vehicle-container">
@@ -343,6 +357,7 @@ const Booking = () => {
               onChange={handleContact}
               placeholder="Enter Your Contact No"
             />
+            {errors.contact && <p className="error">{errors.contact}</p>}
           </div>
 
           <div className="vehicle-container">
@@ -355,14 +370,15 @@ const Booking = () => {
               onChange={handleEmail}
               placeholder="Enter Your Email"
             />
+            {errors.email && <p className="error">{errors.email}</p>}
           </div>
 
 
         </div>
 
-        <button className="button mt-3">Book Now</button>
+        <button type='submit' className="button mt-3">Book Now</button>
 
-
+          </form>
 
       </div>
     </div>

@@ -393,3 +393,8 @@ input[type="radio"] {
   height: 3px;
   background-color: black;
 }
+
+.error{
+  color: red;
+  font-size: 15px;
+}
