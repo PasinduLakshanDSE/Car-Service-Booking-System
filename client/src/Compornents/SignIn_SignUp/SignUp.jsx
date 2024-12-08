@@ -76,7 +76,7 @@ function SignUpForm() {
 
     if (validate()) {
       try {
-        const result = await axios.post('/api/users/SignUpForm', state);
+        const result = await axios.post('http://localhost:5000/api/users/SignUpForm', state);
         console.log(result.data);
         setState({ name: "", contactNo: "", email: "", password: "" });
         setShowAlert(true); // Show success alert

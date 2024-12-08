@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './booking.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
 
 const Booking = () => {
   const [selectedDate, setSelectedDate] = useState(null);
@@ -79,6 +80,7 @@ const Booking = () => {
       [serviceName]: technicianName,
     }));
   };
+  
 
   const validate = () => {
     const newErrors = {};
@@ -98,10 +100,26 @@ const Booking = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (validate()) {
       alert("Booking successful!");
+      // Reset fields after successful booking
+      // Prepare booking data
+      const bookingData = {
+        selectedDate,
+        selectedTime,
+        selectedType,
+        vehicleNumber,
+        vehicleModel,
+        instructions,
+        customerName,
+        customerContact,
+        customerEmail,
+        selectedServices: Object.keys(selectedServices).filter(serviceName => selectedServices[serviceName]), // Ensure only selected services are sent
+        selectedTechnicians,
+      };
+
       // Reset fields after successful booking
       setSelectedDate(null);
       setSelectedTime(null);
@@ -114,6 +132,15 @@ const Booking = () => {
       setEmail("");
       setSelectedServices({});
       setSelectedTechnicians({});
+
+      try {
+        const result = await axios.post('http://localhost:5000/api/bookings/Booking', bookingData);
+
+        console.log(result.data);
+       
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 
