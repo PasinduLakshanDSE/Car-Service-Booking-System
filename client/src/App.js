@@ -25,12 +25,13 @@ import Log from './Compornents/SignIn_SignUp/Log';
 import SignInForm from './Compornents/SignIn_SignUp/SignIn';
 import SignUpForm from './Compornents/SignIn_SignUp/SignUp';
 import Booking from './Compornents/BookingFrom/Booking';
+import AdminDashBoard from './Screen/Admin';
 
 function App() {
   const location = useLocation();  // Get the current route location
 
    // Combine all routes where NavBar and Footer should not appear
-   const noNavFooterRoutes = ['/Log', '/Booking'];
+   const noNavFooterRoutes = ['/Log', '/Booking','/AdminDashBoard'];
 
    // Check if the current route matches any in the list
    const shouldHideNavFooter = noNavFooterRoutes.includes(location.pathname);
@@ -57,6 +58,7 @@ function App() {
         <Route path='/SignInForm' element={<SignInForm/>}/>
         <Route path='/SignUpForm' element={<SignUpForm/>}/>
         <Route path='/Booking' element={<Booking/>}/>
+        <Route path='/AdminDashBoard'  element={<AdminDashBoard/>}/>
       </Routes>
 
        {/* Conditionally render Footer */}

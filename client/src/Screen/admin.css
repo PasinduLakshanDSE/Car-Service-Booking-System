@@ -1,0 +1,7 @@
+.bs {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Example box-shadow */
+    padding: 15px; /* Add padding */
+    background-color: #fff; /* Add background color */
+    border-radius: 5px; /* Rounded corners */
+    margin: 50px 50px 50px 50px;
+}
