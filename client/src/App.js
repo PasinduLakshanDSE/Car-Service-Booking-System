@@ -29,12 +29,13 @@ import Booking from './Compornents/BookingFrom/Booking';
 import AdminNavBar from './Screen/AdminNav/AdminNav';
 import DashBoard from './Screen/AdminDashboard/DashBoard';
 import BookingInfo from './Screen/BookingDashBoard/BookingInfo';
+import TechnicianInfo from './Screen/TechnicianInfo/TechnicianInfo';
 
 function App() {
   const location = useLocation();  // Get the current route location
 
    // Combine all routes where NavBar and Footer should not appear
-   const noNavFooterRoutes = ['/Log', '/Booking','/BookingInfo','/AdminNav','/DashBoard'];
+   const noNavFooterRoutes = ['/Log', '/Booking','/BookingInfo','/AdminNav','/DashBoard','/TechnicianInfo'];
 
    // Check if the current route matches any in the list
    const shouldHideNavFooter = noNavFooterRoutes.includes(location.pathname);
@@ -64,6 +65,7 @@ function App() {
         <Route path='/BookingInfo'  element={<BookingInfo/>}/>
         <Route path='/AdminNav' element={<AdminNavBar/>}/>
         <Route path='/DashBoard'  element={<DashBoard/>}/>
+        <Route path='/TechnicianInfo' element={<TechnicianInfo/>}/>
         
         
         

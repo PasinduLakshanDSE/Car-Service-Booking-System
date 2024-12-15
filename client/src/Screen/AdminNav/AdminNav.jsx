@@ -37,7 +37,7 @@ const AdminNavBar = () => {
           </div>
           <div className="nav-button">
             <i className="fas fa-gear"></i>
-            <a href="/Technician" className="nav-link">
+            <a href="TechnicianInfo" className="nav-link">
             Technician</a>
           </div>
           <div className="nav-button">
