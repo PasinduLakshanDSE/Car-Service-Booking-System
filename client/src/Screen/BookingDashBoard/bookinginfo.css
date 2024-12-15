@@ -3,5 +3,6 @@
     padding: 15px; /* Add padding */
     background-color: #fff; /* Add background color */
     border-radius: 5px; /* Rounded corners */
-    margin: 50px 50px 50px 50px;
+    /*margin: 50px 50px 50px 50px;*/
+    margin: auto;
 }

@@ -1,32 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { Tabs } from "antd";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './admin.css'
+import './bookinginfo.css'
+
 import axios from "axios"
+import AdminNavBar from "../AdminNav/AdminNav";
 
 
 const { TabPane } = Tabs;
 
-function AdminDashBoard() {
+function BookingInfo() {
     return (
+        
         <div className='mt-3 ml-3  mr-3 bs'>
-            <h1>Admin Dashboard</h1>
+            
+            <h3>Booking Details</h3>
             <Tabs defaultActiveKey="1">
                 <TabPane tab="Booking" key="1">
                     <BookingDetails />
                 </TabPane>
-                <TabPane tab="Rooms" key="2">
-                    Content of Tab Pane 2
-                </TabPane>
-                <TabPane tab="Booking3" key="3">
-                    Content of Tab Pane 3
-                </TabPane>
+                
             </Tabs>
         </div>
     );
 }
 
-export default AdminDashBoard;
+export default BookingInfo;
 
 
 export function BookingDetails() {
@@ -48,9 +47,9 @@ export function BookingDetails() {
     return (
         <div className="row">
             <div className="col-md-10">
-                <h5>Booking Details</h5>
+                
 
-                <table className="table table-bordered table-dark">
+                <table className="table table-bordered table-light">
                     <thead className="bs ">
                         <tr>
                             <th>Booking Id</th>
