@@ -1,0 +1,161 @@
+import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./addtechnician.css";
+
+function AddTechnician() {
+  const [formData, setFormData] = useState({
+    technicianImage: null,
+    technicianName: "",
+    serviceType: "Alternator Service",
+    portfolio: null,
+    facebookLink: "",
+  });
+
+  const [errors, setErrors] = useState({});
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    setErrors({ ...errors, [name]: "" }); // Clear the error for this field
+  };
+
+  const handleFileChange = (e) => {
+    const { name, files } = e.target;
+    setFormData({ ...formData, [name]: files[0] });
+    setErrors({ ...errors, [name]: "" }); // Clear the error for this field
+  };
+
+  const validateForm = () => {
+    let newErrors = {};
+    
+    // Check if technician name is provided
+    if (!formData.technicianName.trim()) {
+      newErrors.technicianName = "Technician name is required.";
+    }
+
+    // Check if technician image is uploaded
+    if (!formData.technicianImage) {
+      newErrors.technicianImage = "Technician image is required.";
+    } else if (
+      !["image/jpeg", "image/png", "image/jpg"].includes(formData.technicianImage.type)
+    ) {
+      newErrors.technicianImage = "Only JPG or PNG images are allowed.";
+    }
+
+    // Check if portfolio file is uploaded
+    if (!formData.portfolio) {
+      newErrors.portfolio = "Portfolio file is required.";
+    } else if (
+      !["application/pdf", "application/msword"].includes(formData.portfolio.type)
+    ) {
+      newErrors.portfolio = "Only PDF or Word documents are allowed.";
+    }
+
+    // Validate Facebook link (if provided)
+    if (formData.facebookLink && !formData.facebookLink.match(/https?:\/\/(www\.)?facebook\.com\/.+/)) {
+      newErrors.facebookLink = "Please enter a valid Facebook profile link.";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0; // Return true if no errors
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      console.log("Form Data Submitted:", formData);
+      alert("Technician details submitted successfully!");
+    } else {
+      alert("Please fix the errors before submitting.");
+    }
+  };
+
+  return (
+    <div className="container mt-5 form">
+      <h2 className="mb-4">Add Technician Details</h2>
+      <form onSubmit={handleSubmit} className="f">
+        {/* Technician Image Upload */}
+        <div className="mb-3">
+          <label className="form-label">Technician Image:</label>
+          <input
+            type="file"
+            className="form-control"
+            name="technicianImage"
+            onChange={handleFileChange}
+          />
+          {errors.technicianImage && (
+            <small className="text-danger">{errors.technicianImage}</small>
+          )}
+        </div>
+
+        {/* Technician Name */}
+        <div className="mb-3">
+          <label className="form-label">Technician Name:</label>
+          <input
+            type="text"
+            className="form-control"
+            name="technicianName"
+            placeholder="Enter technician name"
+            value={formData.technicianName}
+            onChange={handleInputChange}
+          />
+          {errors.technicianName && (
+            <small className="text-danger">{errors.technicianName}</small>
+          )}
+        </div>
+
+        {/* Service Type Dropdown */}
+        <div className="mb-3">
+          <label className="form-label">Service Type:</label>
+          <select
+            className="form-select"
+            name="serviceType"
+            value={formData.serviceType}
+            onChange={handleInputChange}
+          >
+            <option value="Alternator Service">Alternator Service</option>
+            <option value="Battery Service">Battery Service</option>
+            <option value="Engine Service">Engine Service</option>
+          </select>
+        </div>
+
+        {/* Portfolio Upload */}
+        <div className="mb-3">
+          <label className="form-label">Portfolio:</label>
+          <input
+            type="file"
+            className="form-control"
+            name="portfolio"
+            onChange={handleFileChange}
+          />
+          {errors.portfolio && (
+            <small className="text-danger">{errors.portfolio}</small>
+          )}
+        </div>
+
+        {/* Facebook Link */}
+        <div className="mb-3">
+          <label className="form-label">Facebook Link:</label>
+          <input
+            type="url"
+            className="form-control"
+            name="facebookLink"
+            placeholder="Enter Facebook profile link"
+            value={formData.facebookLink}
+            onChange={handleInputChange}
+          />
+          {errors.facebookLink && (
+            <small className="text-danger">{errors.facebookLink}</small>
+          )}
+        </div>
+
+        {/* Submit Button */}
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
+      </form>
+    </div>
+  );
+}
+
+export default AddTechnician;

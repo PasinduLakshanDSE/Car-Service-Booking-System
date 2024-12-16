@@ -3,6 +3,7 @@ import { Tabs } from "antd";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./technicianinfo.css";
 import axios from "axios";
+import AddTechnician from "./Addtecnician";
 
 const { TabPane } = Tabs;
 
@@ -13,6 +14,9 @@ function TechnicianInfo() {
       <Tabs defaultActiveKey="1">
         <TabPane tab="Technician" key="1">
           <TechnicianDetails />
+        </TabPane>
+        <TabPane tab="Add Technician" key="2">
+          <AddTechnician/>
         </TabPane>
       </Tabs>
     </div>
