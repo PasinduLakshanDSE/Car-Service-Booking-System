@@ -60,15 +60,42 @@ function AddTechnician() {
     return Object.keys(newErrors).length === 0; // Return true if no errors
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      console.log("Form Data Submitted:", formData);
-      alert("Technician details submitted successfully!");
-    } else {
-      alert("Please fix the errors before submitting.");
+  
+    // Create a new FormData object
+    const data = new FormData(); 
+    data.append("technicianImage", formData.technicianImage);
+    data.append("technicianName", formData.technicianName);
+    data.append("serviceType", formData.serviceType);
+    data.append("portfolio", formData.portfolio);
+    data.append("facebookLink", formData.facebookLink);
+  
+    try {
+      const response = await fetch("http://localhost:5000/api/technicians", {
+        method: "POST",
+        body: data, // Send the correct FormData object
+      });
+  
+      if (response.ok) {
+        alert("Technician added successfully!");
+        setFormData({
+          technicianImage: null,
+          technicianName: "",
+          serviceType: "Alternator Service",
+          portfolio: null,
+          facebookLink: "",
+        }); // Reset form data after success
+      } else {
+        const result = await response.json();
+        alert(`Failed to add technician: ${result.error || "Unknown error"}`);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("An error occurred. Please try again.");
     }
   };
+  
 
   return (
     <div className="container mt-5 form">

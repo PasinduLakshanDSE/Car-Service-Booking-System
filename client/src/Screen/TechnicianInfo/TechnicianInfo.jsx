@@ -60,8 +60,8 @@ export function TechnicianDetails() {
               technicians.map((technicians) => (
                 <tr key={technicians._id}>
                   <td>{technicians._id}</td>
-                  <td>{technicians.name}</td>
-                  <td>{technicians.designation}</td>
+                  <td>{technicians.technicianName}</td>
+                  <td>{technicians.serviceType}</td>
                   <td>
                     <a href={technicians.facebookLink} target="_blank" rel="noreferrer">
                       Facebook
