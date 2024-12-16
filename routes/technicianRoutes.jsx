@@ -64,4 +64,17 @@ router.get("/", async (req, res) => {
   }
 });
 
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    await Technician.findByIdAndDelete(id); // MongoDB example
+    res.status(200).send({ message: "Technician deleted successfully." });
+  } catch (error) {
+    console.error("Error deleting technician:", error);
+    res.status(500).send({ error: "Failed to delete technician." });
+  }
+});
+
+
 module.exports = router;

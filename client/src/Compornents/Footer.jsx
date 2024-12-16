@@ -77,7 +77,7 @@ const Footer = () => {
             <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
               <p> All Right Reserved.
 
-                Designed By Pasindu Lakshan</p>
+                Designed By </p>
             </div>
             <div className="col-md-6 text-center text-md-end">
               <div className="footer-menu">

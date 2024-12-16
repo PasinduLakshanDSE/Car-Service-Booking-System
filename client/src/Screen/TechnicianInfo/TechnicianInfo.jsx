@@ -16,7 +16,7 @@ function TechnicianInfo() {
           <TechnicianDetails />
         </TabPane>
         <TabPane tab="Add Technician" key="2">
-          <AddTechnician/>
+          <AddTechnician />
         </TabPane>
       </Tabs>
     </div>
@@ -28,18 +28,36 @@ export default TechnicianInfo;
 export function TechnicianDetails() {
   const [technicians, setTechnicians] = useState([]); // Correct plural naming
 
+  // Fetch technicians on component mount
   useEffect(() => {
-    const fetchTechnician = async () => {
-      try {
-        const response = await axios.get("/api/technicians/gettechnician");
-        setTechnicians(response.data); // Update state with fetched data
-      } catch (error) {
-        console.error("Error fetching Technician:", error);
-      }
-    };
-
-    fetchTechnician();
+    fetchTechnicians();
   }, []);
+
+  const fetchTechnicians = async () => {
+    try {
+      const response = await axios.get("/api/technicians/gettechnician");
+      setTechnicians(response.data); // Update state with fetched data
+    } catch (error) {
+      console.error("Error fetching Technician:", error);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    if (window.confirm("Are you sure you want to delete this technician?")) {
+      try {
+        const response = await axios.delete(`/api/technicians/${id}`);
+        if (response.status === 200) {
+          alert("Technician deleted successfully!");
+          fetchTechnicians(); // Refresh the list after deletion
+        } else {
+          alert("Failed to delete the technician. Please try again.");
+        }
+      } catch (error) {
+        console.error("Error deleting technician:", error);
+        alert("An error occurred while deleting the technician.");
+      }
+    }
+  };
 
   return (
     <div className="row">
@@ -49,39 +67,51 @@ export function TechnicianDetails() {
             <tr>
               <th>ID</th>
               <th>Name</th>
-              <th>Designation</th>
+              <th>serviceType</th>
               <th>Facebook Link</th>
-              <th>Twitter Link</th>
-              <th>Instagram Link</th>
+              <th>Portfolio</th>
+
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             {technicians.length > 0 ? (
-              technicians.map((technicians) => (
-                <tr key={technicians._id}>
-                  <td>{technicians._id}</td>
-                  <td>{technicians.technicianName}</td>
-                  <td>{technicians.serviceType}</td>
+              technicians.map((technician) => (
+                <tr key={technician._id}>
+                  <td>{technician._id}</td>
+                  <td>{technician.technicianName}</td>
+                  <td>{technician.
+
+                    serviceType}</td>
                   <td>
-                    <a href={technicians.facebookLink} target="_blank" rel="noreferrer">
+                    <a href={technician.facebookLink} target="_blank" rel="noreferrer">
                       Facebook
                     </a>
                   </td>
+
                   <td>
-                    <a href={technicians.twitterLink} target="_blank" rel="noreferrer">
-                      Twitter
+                    <a
+                      href={`http://localhost:5000/${technician.portfolio}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      View Portfolio
                     </a>
                   </td>
+
                   <td>
-                    <a href={technicians.instagramLink} target="_blank" rel="noreferrer">
-                      Instagram
-                    </a>
+                    <button
+                      className="btn btn-danger btn-sm"
+                      onClick={() => handleDelete(technician._id)}
+                    >
+                      Delete
+                    </button>
                   </td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan="6" className="text-center">
+                <td colSpan="7" className="text-center">
                   No Technician Data Available
                 </td>
               </tr>

@@ -6,7 +6,7 @@ function AddTechnician() {
   const [formData, setFormData] = useState({
     technicianImage: null,
     technicianName: "",
-    serviceType: "Alternator Service",
+    serviceType: "Full Wiring Service",
     portfolio: null,
     facebookLink: "",
   });
@@ -82,7 +82,7 @@ function AddTechnician() {
         setFormData({
           technicianImage: null,
           technicianName: "",
-          serviceType: "Alternator Service",
+          serviceType: "Full Wiring Service",
           portfolio: null,
           facebookLink: "",
         }); // Reset form data after success
@@ -140,9 +140,12 @@ function AddTechnician() {
             value={formData.serviceType}
             onChange={handleInputChange}
           >
-            <option value="Alternator Service">Alternator Service</option>
-            <option value="Battery Service">Battery Service</option>
-            <option value="Engine Service">Engine Service</option>
+            <option value="Full Wiring Service">Full Wiring Service</option>
+            <option value="Scanning Service">Scanning Service</option>
+            <option value="Altenator Service">Altenator Service</option>
+            <option value="Starting Motor Service">Starting Motor Service</option>
+            <option value="Head Light Wiring Service">Head Light Wiring Service</option>
+            <option value="Setup and Speakers Replacement">Setup and Speakers Replacement</option>
           </select>
         </div>
 
