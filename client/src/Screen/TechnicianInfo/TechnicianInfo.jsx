@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./technicianinfo.css";
 import axios from "axios";
 import AddTechnician from "./Addtecnician";
+import EditTechnician from "./EditTechnician"; // Ensure you have this component
 
 const { TabPane } = Tabs;
 
@@ -26,7 +27,9 @@ function TechnicianInfo() {
 export default TechnicianInfo;
 
 export function TechnicianDetails() {
-  const [technicians, setTechnicians] = useState([]); // Correct plural naming
+  const [technicians, setTechnicians] = useState([]);
+  const [editingTechnician, setEditingTechnician] = useState(null);
+  const [showEditModal, setShowEditModal] = useState(false);
 
   // Fetch technicians on component mount
   useEffect(() => {
@@ -36,7 +39,7 @@ export function TechnicianDetails() {
   const fetchTechnicians = async () => {
     try {
       const response = await axios.get("/api/technicians/gettechnician");
-      setTechnicians(response.data); // Update state with fetched data
+      setTechnicians(response.data);
     } catch (error) {
       console.error("Error fetching Technician:", error);
     }
@@ -59,6 +62,25 @@ export function TechnicianDetails() {
     }
   };
 
+  const handleEdit = (technician) => {
+    setEditingTechnician(technician);
+    setShowEditModal(true);
+  };
+
+  const handleUpdate = async (id, updatedData) => {
+    try {
+      await axios.put(`/api/technicians/${id}`, updatedData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      alert("Technician updated successfully!");
+      setShowEditModal(false); // Close modal after update
+      fetchTechnicians(); // Refresh data
+    } catch (error) {
+      console.error("Error updating technician:", error);
+      alert("Failed to update technician.");
+    }
+  };
+
   return (
     <div className="row">
       <div className="col-md-12">
@@ -67,10 +89,9 @@ export function TechnicianDetails() {
             <tr>
               <th>ID</th>
               <th>Name</th>
-              <th>serviceType</th>
+              <th>Service Type</th>
               <th>Facebook Link</th>
               <th>Portfolio</th>
-
               <th>Actions</th>
             </tr>
           </thead>
@@ -80,15 +101,12 @@ export function TechnicianDetails() {
                 <tr key={technician._id}>
                   <td>{technician._id}</td>
                   <td>{technician.technicianName}</td>
-                  <td>{technician.
-
-                    serviceType}</td>
+                  <td>{technician.serviceType}</td>
                   <td>
                     <a href={technician.facebookLink} target="_blank" rel="noreferrer">
                       Facebook
                     </a>
                   </td>
-
                   <td>
                     <a
                       href={`http://localhost:5000/${technician.portfolio}`}
@@ -98,8 +116,13 @@ export function TechnicianDetails() {
                       View Portfolio
                     </a>
                   </td>
-
                   <td>
+                    <button
+                      className="btn btn-primary btn-sm me-2"
+                      onClick={() => handleEdit(technician)}
+                    >
+                      Update
+                    </button>
                     <button
                       className="btn btn-danger btn-sm"
                       onClick={() => handleDelete(technician._id)}
@@ -111,13 +134,23 @@ export function TechnicianDetails() {
               ))
             ) : (
               <tr>
-                <td colSpan="7" className="text-center">
+                <td colSpan="6" className="text-center">
                   No Technician Data Available
                 </td>
               </tr>
             )}
           </tbody>
         </table>
+
+        {/* Edit Modal */}
+        {showEditModal && editingTechnician && (
+          <EditTechnician
+            show={showEditModal}
+            onClose={() => setShowEditModal(false)}
+            technician={editingTechnician}
+            onUpdate={handleUpdate}
+          />
+        )}
       </div>
     </div>
   );

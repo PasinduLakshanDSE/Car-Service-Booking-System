@@ -77,4 +77,30 @@ router.delete('/:id', async (req, res) => {
 });
 
 
+router.put("/:id", upload.fields([{ name: "technicianImage" }, { name: "portfolio" }]), async (req, res) => {
+  try {
+    const updateFields = { ...req.body };
+
+    if (req.files.technicianImage) {
+      updateFields.technicianImage = req.files.technicianImage[0].path;
+    }
+
+    if (req.files.portfolio) {
+      updateFields.portfolio = req.files.portfolio[0].path;
+    }
+
+    const updatedTechnician = await Technician.findByIdAndUpdate(req.params.id, updateFields, {
+      new: true,
+    });
+
+    res.status(200).json(updatedTechnician);
+  } catch (error) {
+    console.error("Error updating technician:", error);
+    res.status(500).json({ error: "Failed to update technician" });
+  }
+});
+
+
+
+
 module.exports = router;

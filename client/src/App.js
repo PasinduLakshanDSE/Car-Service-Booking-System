@@ -31,6 +31,7 @@ import DashBoard from './Screen/AdminDashboard/DashBoard';
 import BookingInfo from './Screen/BookingDashBoard/BookingInfo';
 import TechnicianInfo from './Screen/TechnicianInfo/TechnicianInfo';
 import AddTechnician from './Screen/TechnicianInfo/Addtecnician';
+import EditTechnician from './Screen/TechnicianInfo/EditTechnician';
 
 function App() {
   const location = useLocation();  // Get the current route location
@@ -68,6 +69,7 @@ function App() {
         <Route path='/DashBoard'  element={<DashBoard/>}/>
         <Route path='/TechnicianInfo' element={<TechnicianInfo/>}/>
         <Route path='/AddTechnician' element={<AddTechnician/>}/>
+        <Route path='/EditTechnician' element={<EditTechnician/>}/>
         
         
         
