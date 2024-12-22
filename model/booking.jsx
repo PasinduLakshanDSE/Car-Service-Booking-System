@@ -12,6 +12,7 @@ const bookingSchema = mongoose.Schema({
   customerEmail: String,
   selectedServices: Object,
   selectedTechnicians: Object,
+  status: { type: String, default: "Pending" },
 });
 
 const Booking = mongoose.model("Booking", bookingSchema);

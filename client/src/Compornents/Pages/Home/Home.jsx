@@ -88,7 +88,7 @@ const Home = () => {
                     <div className="col-10 col-lg-7 text-center text-lg-start">
 
                       <h1 className="display-3 custom-text mb-4 pb-3 animated slideInDown " style={{ fontFamily: 'Barlow', fontWeight: 700 }}>Qualified Full Wiring Service</h1>
-                      <a href="#" className="btn btn-custom py-3 px-5 animated slideInDown">Learn More<i className="fa fa-arrow-right ms-3"></i></a>
+                      <a href="/FullWiring" className="btn btn-custom py-3 px-5 animated slideInDown">Learn More<i className="fa fa-arrow-right ms-3"></i></a>
                     </div>
                     <div className="col-lg-5 d-none d-lg-flex animated zoomIn">
                       <img className="img-fluid" src="/carousel-1.png" alt="" />
@@ -105,7 +105,7 @@ const Home = () => {
                     <div className="col-10 col-lg-7 text-center text-lg-start">
 
                       <h1 className="display-3 text-white mb-4 pb-3 animated slideInDown" style={{ fontFamily: 'Barlow', fontWeight: 700 }}>Qualified Scanning Service</h1>
-                      <a href="#" className="btn btn-custom py-3 px-5 animated slideInDown">Learn More<i className="fa fa-arrow-right ms-3"></i></a>
+                      <a href="/Scanning" className="btn btn-custom py-3 px-5 animated slideInDown">Learn More<i className="fa fa-arrow-right ms-3"></i></a>
                     </div>
                     <div className="col-lg-5 d-none d-lg-flex animated zoomIn">
                       <img className="img-fluid" src="/carousel-2.png" alt="" />
@@ -122,7 +122,7 @@ const Home = () => {
                     <div className="col-10 col-lg-7 text-center text-lg-start">
 
                       <h1 className="display-3 text-white mb-4 pb-3 animated slideInDown" style={{ fontFamily: 'Barlow', fontWeight: 700 }}>Qualified Altenator Service</h1>
-                      <a href="#" className="btn btn-custom py-3 px-5 animated slideInDown">Learn More<i className="fa fa-arrow-right ms-3"></i></a>
+                      <a href="/Altenator" className="btn btn-custom py-3 px-5 animated slideInDown">Learn More<i className="fa fa-arrow-right ms-3"></i></a>
                     </div>
                     <div className="col-lg-5 d-none d-lg-flex animated zoomIn">
                       <img className="img-fluid" src="/carousel-4.png" alt="" />
@@ -139,7 +139,7 @@ const Home = () => {
                     <div className="col-10 col-lg-7 text-center text-lg-start">
 
                       <h1 className="display-3 text-white mb-4 pb-3 animated slideInDown" style={{ fontFamily: 'Barlow', fontWeight: 700 }}>Qualified Starting Motor Service</h1>
-                      <a href="#" className="btn btn-custom py-3 px-5 animated slideInDown">Learn More<i className="fa fa-arrow-right ms-3"></i></a>
+                      <a href="/Starting" className="btn btn-custom py-3 px-5 animated slideInDown">Learn More<i className="fa fa-arrow-right ms-3"></i></a>
                     </div>
                     <div className="col-lg-5 d-none d-lg-flex animated zoomIn">
                       <img className="img-fluid" src="/carousel-5.png" alt="" />
@@ -156,7 +156,7 @@ const Home = () => {
                     <div className="col-10 col-lg-7 text-center text-lg-start">
 
                       <h1 className="display-3 text-white mb-4 pb-3 animated slideInDown" style={{ fontFamily: 'Barlow', fontWeight: 700 }}>Qualified Head Light wiring Service</h1>
-                      <a href="#" className="btn btn-custom py-3 px-5 animated slideInDown">Learn More<i className="fa fa-arrow-right ms-3"></i></a>
+                      <a href="/Light" className="btn btn-custom py-3 px-5 animated slideInDown">Learn More<i className="fa fa-arrow-right ms-3"></i></a>
                     </div>
                     <div className="col-lg-5 d-none d-lg-flex animated zoomIn">
                       <img className="img-fluid" src="/carousel-3.png" alt="" />
@@ -173,7 +173,7 @@ const Home = () => {
                     <div className="col-10 col-lg-7 text-center text-lg-start">
 
                       <h1 className="display-3 text-white mb-4 pb-3 animated slideInDown" style={{ fontFamily: 'Barlow', fontWeight: 700 }}>Qualified Setup and Speekers Replacement</h1>
-                      <a href="#" className="btn btn-custom py-3 px-5 animated slideInDown">Learn More<i className="fa fa-arrow-right ms-3"></i></a>
+                      <a href="/Setup" className="btn btn-custom py-3 px-5 animated slideInDown">Learn More<i className="fa fa-arrow-right ms-3"></i></a>
                     </div>
                     <div className="col-lg-5 d-none d-lg-flex animated zoomIn">
                       <img className="img-fluid" src="/carousel-6.png" alt="" />
@@ -326,7 +326,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <a href="#" className="btn btn-custom py-3 px-5">
+              <a href="/about" className="btn btn-custom py-3 px-5">
                 Read More <i className="fa fa-arrow-right ms-3"></i>
               </a>
             </div>

@@ -7,7 +7,7 @@ const DashBoard = () => {
   const [bookings, setBookings] = useState([]);
   const [techniciansCount, setTechniciansCount] = useState(0);
   const [servicesCount, setServicesCount] = useState(0);
-  const [usersCount, setUsersCount] = useState(0);
+  const [usersCount, setUsers] = useState(0);
 
   useEffect(() => {
     const fetchDashboardData = async () => {
@@ -22,8 +22,8 @@ const DashBoard = () => {
         const servicesResponse = await axios.get("/api/services/getallservices");
         setServicesCount(servicesResponse.data.length);
 
-        const usersResponse = await axios.get("/api/users/getallusers");
-        setUsersCount(usersResponse.data.length);
+        const usersResponse = await axios.get("/api/users/getallUsers");
+        setUsers(usersResponse.data.length);
       } catch (error) {
         console.error("Error fetching dashboard data:", error);
       }

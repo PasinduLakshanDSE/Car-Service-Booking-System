@@ -32,12 +32,16 @@ import BookingInfo from './Screen/BookingDashBoard/BookingInfo';
 import TechnicianInfo from './Screen/TechnicianInfo/TechnicianInfo';
 import AddTechnician from './Screen/TechnicianInfo/Addtecnician';
 import EditTechnician from './Screen/TechnicianInfo/EditTechnician';
+import UserInfo from './Screen/UserInfo/UserInfo';
+import AddService from './Screen/ServiceInfo/AddService';
+import ServiceInfo from './Screen/ServiceInfo/ServiceInfo';
+import EditService from './Screen/ServiceInfo/EditService';
 
 function App() {
   const location = useLocation();  // Get the current route location
 
    // Combine all routes where NavBar and Footer should not appear
-   const noNavFooterRoutes = ['/Log', '/Booking','/BookingInfo','/AdminNav','/DashBoard','/TechnicianInfo','/AddTechnician'];
+   const noNavFooterRoutes = ['/Log', '/Booking','/BookingInfo','/AdminNav','/DashBoard','/TechnicianInfo','/AddTechnician','/UserInfo','/AddService','/ServiceInfo'];
 
    // Check if the current route matches any in the list
    const shouldHideNavFooter = noNavFooterRoutes.includes(location.pathname);
@@ -70,7 +74,10 @@ function App() {
         <Route path='/TechnicianInfo' element={<TechnicianInfo/>}/>
         <Route path='/AddTechnician' element={<AddTechnician/>}/>
         <Route path='/EditTechnician' element={<EditTechnician/>}/>
-        
+        <Route path='/UserInfo' element={<UserInfo/>}/>
+        <Route path='/AddService'  element={<AddService/>}/>
+       <Route path='/ServiceInfo'  element={<ServiceInfo/>}/>
+       <Route path='/EditService' element={<EditService/>}/>
         
         
         

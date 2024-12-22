@@ -42,13 +42,13 @@ const AdminNavBar = () => {
           </div>
           <div className="nav-button">
             <i className="fas fa-handshake"></i>
-            <a href="/Service" className="nav-link">
+            <a href="/ServiceInfo" className="nav-link">
             Service</a>
           </div>
           <hr />
           <div className="nav-button">
             <i className="fas fa-user"></i>
-            <a href="/Users" className="nav-link">Users</a>
+            <a href="/UserInfo" className="nav-link">Users</a>
           </div>
 
           <div id="nav-content-highlight"></div>
