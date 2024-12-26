@@ -4,5 +4,10 @@
     background-color: #fff; /* Add background color */
     border-radius: 5px; /* Rounded corners */
     /*margin: 50px 50px 50px 50px;*/
-    margin: auto;
+   margin: auto;
+   
 }
+.tab{
+    margin-left: 220px;
+}
+

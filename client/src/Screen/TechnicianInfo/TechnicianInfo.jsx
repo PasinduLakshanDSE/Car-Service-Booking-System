@@ -5,11 +5,14 @@ import "./technicianinfo.css";
 import axios from "axios";
 import AddTechnician from "./Addtecnician";
 import EditTechnician from "./EditTechnician"; // Ensure you have this component
+import AdminNavBar from "../AdminNav/AdminNav";
 
 const { TabPane } = Tabs;
 
 function TechnicianInfo() {
   return (
+    <div className="tab3">
+      <AdminNavBar/>
     <div className="mt-3 ml-3 mr-3 bs">
       <h3>Technician Details</h3>
       <Tabs defaultActiveKey="1">
@@ -20,6 +23,7 @@ function TechnicianInfo() {
           <AddTechnician />
         </TabPane>
       </Tabs>
+    </div>
     </div>
   );
 }

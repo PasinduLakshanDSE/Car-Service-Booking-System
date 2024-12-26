@@ -19,7 +19,7 @@ const DashBoard = () => {
         const techniciansResponse = await axios.get("/api/technicians/gettechnician");
         setTechniciansCount(techniciansResponse.data.length);
 
-        const servicesResponse = await axios.get("/api/services/getallservices");
+        const servicesResponse = await axios.get("/api/services/getservice");
         setServicesCount(servicesResponse.data.length);
 
         const usersResponse = await axios.get("/api/users/getallUsers");

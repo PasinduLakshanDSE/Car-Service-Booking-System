@@ -5,11 +5,14 @@ import "./serviceinfo.css";
 import axios from "axios";
 import AddService from "./AddService";
 import EditService from "./EditService";
+import AdminNavBar from "../AdminNav/AdminNav";
 
 const { TabPane } = Tabs;
 
 function ServiceInfo() {
   return (
+    <div className="tab2">
+      <AdminNavBar/>
     <div className="mt-3 ml-3 mr-3 bs">
       <h3>Service Details</h3>
       <Tabs defaultActiveKey="1">
@@ -20,6 +23,7 @@ function ServiceInfo() {
           <AddService />
         </TabPane>
       </Tabs>
+    </div>
     </div>
   );
 }

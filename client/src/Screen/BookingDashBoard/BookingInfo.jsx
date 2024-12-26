@@ -11,16 +11,20 @@ const { TabPane } = Tabs;
 
 function BookingInfo() {
     return (
-        
-        <div className='mt-3 ml-3  mr-3 bs'>
+      <div className="tab" >
+        <AdminNavBar/>
+        <div className='mt-3 ml-7  mr-3 bs tab'>
             
             <h3>Booking Details</h3>
+            
             <Tabs defaultActiveKey="1">
                 <TabPane tab="Booking" key="1">
+                  
                     <BookingDetails />
                 </TabPane>
                 
             </Tabs>
+        </div>
         </div>
     );
 }
@@ -67,6 +71,7 @@ export function BookingDetails() {
     };
   
     return (
+      <div>
       <div className="row">
         <div className="col-md-10">
           <table className="table table-bordered table-light">
@@ -133,6 +138,7 @@ export function BookingDetails() {
             </tbody>
           </table>
         </div>
+      </div>
       </div>
     );
   }
