@@ -2,7 +2,7 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import { Alert } from "react-bootstrap"; 
+import { Alert } from "react-bootstrap";
 
 function SignInForm() {
   const [state, setState] = React.useState({
@@ -59,12 +59,18 @@ function SignInForm() {
       try {
         const result = await axios.post('http://localhost:5000/api/users/SignInForm', state);
         console.log(result.data);
+
+        // Reset email and password fields
         setState({ email: "", password: "" });
         setShowError(false); // Hide error on successful login
 
-        // Store user data and navigate to the home page
-        localStorage.setItem('currentUser', JSON.stringify(result.data));
-        navigate('/');  // Navigate to the home page after login
+        // Check user role and navigate accordingly
+        if (result.data.email === "admin@pioneer.com") {
+          navigate('/DashBoard'); // Admin user
+        } else {
+          localStorage.setItem('currentUser', JSON.stringify(result.data));
+          navigate('/'); // Normal user
+        }
       } catch (error) {
         console.error(error);
         setShowError(true); // Show error alert if login fails
@@ -76,14 +82,13 @@ function SignInForm() {
 
   return (
     <div className="form-container sign-in-container">
-     
       <form className="form" onSubmit={handleOnSubmit}>
-         {/* Error Alert */}
-      {showError && (
-        <Alert variant="danger" className="mt-2">
-          Invalid email or password. Please try again.
-        </Alert>
-      )}
+        {/* Error Alert */}
+        {showError && (
+          <Alert variant="danger" className="mt-2">
+            Invalid email or password. Please try again.
+          </Alert>
+        )}
         <h1 className="title pb-3">Sign in</h1>
         <input
           className={`input ${errors.email && "is-invalid"}`}

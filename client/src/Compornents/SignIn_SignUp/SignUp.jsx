@@ -40,37 +40,39 @@ function SignUpForm() {
   const validate = () => {
     let valid = true;
     const newErrors = { name: "", address: "", contactNo: "", email: "", password: "" };
-
+  
     // Name validation
     if (!state.name.trim()) {
       newErrors.name = "Name is required.";
       valid = false;
     }
+  
+    // Contact Number validation (Sri Lankan format with specified area codes)
+    const sriLankaContactRegex = /^(?:0(?:11|36|31|33|38|34|54|81|51|52|66|91|41|47|32|37|21|23|24|63|67|65|26|25|27|55|57|45|35|78|77|70|71|76|72|75)\d{7})$/;
+if (!sriLankaContactRegex.test(state.contactNo)) {
+  newErrors.contactNo = "Please enter a valid Sri Lankan contact number.";
+  valid = false;
+}
 
-    // Contact Number validation (basic regex for numbers)
-    const contactNoRegex = /^[0-9]{10}$/;
-    if (!contactNoRegex.test(state.contactNo)) {
-      newErrors.contactNo = "Contact number must be 10 digits.";
-      valid = false;
-    }
-
+  
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(state.email)) {
       newErrors.email = "Please enter a valid email address.";
       valid = false;
     }
-
+  
     // Password validation
     if (state.password.length < 6) {
       newErrors.password = "Password must be at least 6 characters long.";
       valid = false;
     }
-
+  
     setErrors(newErrors);
     return valid;
   };
-
+  
+  
   const handleOnSubmit = async (evt) => {
     evt.preventDefault();
 
